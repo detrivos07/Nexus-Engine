@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/natives/nix64/lwjgl-glfw-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/nix64/lwjgl-nanovg-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/nix64/lwjgl-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/nix64/lwjgl-openal-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/nix64/lwjgl-opengles-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/nix64/lwjgl-opengl-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/nix64/lwjgl-stb-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/nix64/lwjgl-vma-natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/natives/win64/lwjgl-glfw-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/win64/lwjgl-nanovg-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/win64/lwjgl-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/win64/lwjgl-openal-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/win64/lwjgl-opengles-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/win64/lwjgl-opengl-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/win64/lwjgl-stb-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/natives/win64/lwjgl-vma-natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/joml-1.10.4.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl3-awt-0.1.8.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-cuda.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-glfw.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-jawt.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-nanovg.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-openal.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-opencl.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-opengl.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-opengles.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-stb.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-vma.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-vulkan.jar"/>
+	<classpathentry kind="lib" path="lib/steamworks4j-1.9.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
