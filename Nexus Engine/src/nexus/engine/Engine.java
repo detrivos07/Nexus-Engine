@@ -9,6 +9,46 @@ public class Engine implements Runnable {
 	public void run() {
 	}
 	
+	public Engine(IProgram program) { 
+		this.PROGRAM = program;
+	}
+	
+	/**
+	 * Initializes the engine
+	 * Primary try/catch loop
+	 */
+	void init() {
+		PROGRAM.init();
+	}
+	
+	/**
+	 * Updates all input devices
+	 */
+	void input() {
+		PROGRAM.input();
+	}
+	
+	/**
+	 * Updates all engine devices
+	 */
+	void update() {
+		PROGRAM.update();
+	}
+	
+	/**
+	 * Clears viewport renderer, renders current scene, buffer swapper
+	 */
+	void render() {
+		PROGRAM.render();
+	}
+	
+	/**
+	 * Destroys all engine objects
+	 */
+	void destroy() {
+		PROGRAM.destroy();
+	}
+	
 	/**
 	 * primary program loop
 	 */
@@ -23,15 +63,15 @@ public class Engine implements Runnable {
 			long now = System.nanoTime();
 			delta += (now - last) / nano;
 			last = now;
-			//input here
+			input();
 			while (delta >= 1) {
 				//update here
-				
+				update();
 				ups++;
 				delta--;
 			}
 			//render here
-			
+			render();
 			fps++;
 			if (System.currentTimeMillis() - curr > 1000) {
 				System.out.println("FPS: " + fps + " | UPS: " + ups);
