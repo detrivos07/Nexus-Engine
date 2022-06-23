@@ -1,6 +1,10 @@
 package nexus.engine;
 
+import com.google.common.flogger.FluentLogger;
+
 public class Engine implements Runnable {
+	public static final FluentLogger logger = FluentLogger.forEnclosingClass();
+	
 	public static boolean running = false;
 	
 	private IProgram PROGRAM;
