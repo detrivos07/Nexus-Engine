@@ -4,9 +4,13 @@ import static org.lwjgl.glfw.GLFW.*;
 
 import org.lwjgl.glfw.GLFWWindowSizeCallback;
 
+import com.google.common.flogger.FluentLogger;
+import com.google.common.flogger.StackSize;
+
 import nexus.engine.Engine;
 
-public class Window {
+public class GLFWWindow {
+	private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 	
 	private int width = 1920;
 	private int height = 1080;
@@ -20,13 +24,13 @@ public class Window {
 	
 	private GLFWWindowSizeCallback wsc;
 	
-	public Window() {
-		if (!glfwInit()) throw new IllegalStateException("Unable to initialize GLFW");
+	public GLFWWindow() {
+		if (!glfwInit()) logger.atSevere().withStackTrace(StackSize.MEDIUM).log("Unable to initialize GLFW");
 	}
 	
 	public void init() {
 		this.window = glfwCreateWindow(width, height, title, fullscreen ? glfwGetPrimaryMonitor() : 0, 0);
-		if (window == 0) throw new IllegalStateException("Unable to create GLFW Window");
+		if (window == 0) logger.atSevere().withStackTrace(StackSize.MEDIUM).log("Unable to create GLFW window");
 		
 //		if (!fullscreen) {
 //			GLFWVidMode vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
@@ -104,7 +108,7 @@ public class Window {
 				height = argHeight;
 				context.updateViewport(argWidth, argHeight);
 				hasResized = true;
-				System.out.println("Window resized. W: " + argWidth + " H: " + argHeight);
+				logger.atInfo().log("Window resized. W: " + argWidth + " H: " + argHeight);
 			}
 		};
 		glfwSetWindowSizeCallback(window, wsc);
