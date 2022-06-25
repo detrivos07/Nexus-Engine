@@ -1,20 +1,35 @@
 package nexus.engine;
 
+import java.io.IOException;
+
 import com.google.common.flogger.FluentLogger;
 
+import nexus.engine.core.io.DisplayManager;
+
 public class Engine implements Runnable {
-	public static final FluentLogger logger = FluentLogger.forEnclosingClass();
 	
 	public static boolean running = false;
 	
 	private IProgram PROGRAM;
+	
+	private DisplayManager display;
 
 	@Override
 	public void run() {
+		running = true;
+		init();
+		loop();
+		destroy();
 	}
 	
 	public Engine(IProgram program) { 
 		this.PROGRAM = program;
+		try {
+			this.display = new DisplayManager();
+		} catch (IOException e) {
+			System.out.println("NO LOAD DISPLAY");
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -22,28 +37,32 @@ public class Engine implements Runnable {
 	 * Primary try/catch loop
 	 */
 	void init() {
-		PROGRAM.init();
+		display.init();
+		PROGRAM.init(display);
 	}
 	
 	/**
 	 * Updates all input devices
 	 */
 	void input() {
-		PROGRAM.input();
+		display.update();
+		PROGRAM.input(display);
 	}
 	
 	/**
 	 * Updates all engine devices
 	 */
 	void update() {
-		PROGRAM.update();
+		PROGRAM.update(display);
 	}
 	
 	/**
 	 * Clears viewport renderer, renders current scene, buffer swapper
 	 */
 	void render() {
-		PROGRAM.render();
+		display.preRender();
+		PROGRAM.render(display);
+		display.postRender();
 	}
 	
 	/**
@@ -51,6 +70,7 @@ public class Engine implements Runnable {
 	 */
 	void destroy() {
 		PROGRAM.destroy();
+		display.destroy();
 	}
 	
 	/**
