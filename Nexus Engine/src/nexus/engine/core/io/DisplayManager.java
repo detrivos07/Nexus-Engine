@@ -2,7 +2,6 @@ package nexus.engine.core.io;
 
 import java.io.IOException;
 
-import com.google.common.flogger.FluentLogger;
 import com.google.gson.stream.JsonReader;
 
 import nexus.engine.core.render.opengl.GLWindowContext;

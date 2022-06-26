@@ -2,8 +2,6 @@ package nexus.engine;
 
 import java.io.IOException;
 
-import com.google.common.flogger.FluentLogger;
-
 import nexus.engine.core.io.DisplayManager;
 
 public class Engine implements Runnable {

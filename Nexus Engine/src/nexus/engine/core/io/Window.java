@@ -4,9 +4,6 @@ import static org.lwjgl.glfw.GLFW.*;
 
 import org.lwjgl.glfw.GLFWWindowSizeCallback;
 
-import com.google.common.flogger.FluentLogger;
-import com.google.common.flogger.StackSize;
-
 import nexus.engine.Engine;
 
 public class Window {

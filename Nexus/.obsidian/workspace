@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "cd37567e566c537e",
+    "type": "split",
+    "children": [
+      {
+        "id": "4f5f8f3b7345afe2",
+        "type": "leaf",
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2b1cbd8ed11a45e1",
+    "type": "split",
+    "children": [
+      {
+        "id": "531bcdbb0ed4964c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2b8ddd203b4ee375",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "33345f745018c3ec",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f836ffd36fa78897",
+    "type": "split",
+    "children": [
+      {
+        "id": "72031f546ebe42f5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "61623c87d1df7dd8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "0b8b9fdede438013",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "4f5f8f3b7345afe2",
+  "lastOpenFiles": []
+}
