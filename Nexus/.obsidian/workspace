@@ -7,8 +7,20 @@
         "id": "4f5f8f3b7345afe2",
         "type": "leaf",
         "state": {
-          "type": "empty",
+          "type": "graph",
           "state": {}
+        }
+      },
+      {
+        "id": "9f2baab98eb16b5c",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "DWS 25-622.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -65,6 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "DWS 25-622.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -82,14 +95,28 @@
               "type": "calendar",
               "state": {}
             }
+          },
+          {
+            "id": "e4838ad136e73c74",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
-  "active": "4f5f8f3b7345afe2",
-  "lastOpenFiles": []
+  "active": "9f2baab98eb16b5c",
+  "lastOpenFiles": [
+    "DWS 25-622.md",
+    "templates/Daily Worksheet Template.md",
+    "Daily Worksheet Template.md"
+  ]
 }
