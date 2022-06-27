@@ -2,7 +2,10 @@ package nexus.engine;
 
 import java.io.IOException;
 
+import org.lwjgl.glfw.GLFW;
+
 import nexus.engine.core.io.DisplayManager;
+import nexus.engine.core.io.Keyboard;
 
 public class Engine implements Runnable {
 	
@@ -11,6 +14,7 @@ public class Engine implements Runnable {
 	private IProgram PROGRAM;
 	
 	private DisplayManager display;
+	private Keyboard board;
 
 	@Override
 	public void run() {
@@ -36,6 +40,8 @@ public class Engine implements Runnable {
 	 */
 	void init() {
 		display.init();
+		board = new Keyboard(display.getWindow().getWindow());
+		board.init();
 		PROGRAM.init(display);
 	}
 	
@@ -43,7 +49,7 @@ public class Engine implements Runnable {
 	 * Updates all input devices
 	 */
 	void input() {
-		display.update();
+		display.update(board);
 		PROGRAM.input(display);
 	}
 	
