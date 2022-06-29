@@ -1,7 +1,7 @@
 package nexus.demo;
 
 import nexus.engine.IProgram;
-import nexus.engine.core.io.DisplayManager;
+import nexus.engine.core.io.*;
 
 public class DemoGame implements IProgram {
 	
@@ -10,7 +10,7 @@ public class DemoGame implements IProgram {
 	}
 	
 	@Override
-	public void input(DisplayManager display) {
+	public void input(DisplayManager display, Keyboard board, Mouse mouse) {
 	}
 	
 	@Override

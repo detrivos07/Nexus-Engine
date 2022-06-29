@@ -1,8 +1,11 @@
 package nexus.engine.core.render.utils;
 
+import java.lang.Math;
+
 import org.joml.*;
 
-import java.lang.Math;
+import nexus.engine.core.io.Camera;
+import nexus.engine.scene.GameObject;
 
 public class Transformation3D {
 	
@@ -34,9 +37,9 @@ public class Transformation3D {
 		return orthoProjMat.setOrtho(l, r, b, t, n, f);
 	}
 	
-//	public Matrix4f updateViewMat(Camera camera) {
-//		return updateGenericViewMat(camera.getPos(), camera.getRot(), viewMat);
-//	}
+	public Matrix4f updateViewMat(Camera camera) {
+		return updateGenericViewMat(camera.getPos(), camera.getRot(), viewMat);
+	}
 	
 	public Matrix4f updateLightViewMatrix(Vector3f pos, Vector3f rot) {
 		return updateGenericViewMat(pos, rot, lightViewMat);
@@ -51,33 +54,33 @@ public class Transformation3D {
 		return mat;
 	}
 	
-//	public Matrix4f buildModelMatrix(GameObject object) {
-//		Quaternionf rot = object.getRot();
-//		return modelMat.translationRotateScale(
-//				object.getPos().x, object.getPos().y, object.getPos().z,
-//				rot.x, rot.y, rot.z, rot.w, 
-//				object.getScale().x, object.getScale().y, object.getScale().z);
-//	}
+	public Matrix4f buildModelMatrix(GameObject object) {
+		Quaternionf rot = object.getRot();
+		return modelMat.translationRotateScale(
+				object.getPos().x, object.getPos().y, object.getPos().z,
+				rot.x, rot.y, rot.z, rot.w, 
+				object.getScale().x, object.getScale().y, object.getScale().z);
+	}
 	
 	public Matrix4f buildModelViewMatrix(Matrix4f modelMat, Matrix4f viewMat) {
 		return viewMat.mulAffine(modelMat, modelViewMat);
 	}
 	
-//	public Matrix4f buildModelViewMatrix(GameObject o, Matrix4f viewMat) {
-//		return buildModelViewMatrix(buildModelMatrix(o), viewMat);
-//	}
+	public Matrix4f buildModelViewMatrix(GameObject o, Matrix4f viewMat) {
+		return buildModelViewMatrix(buildModelMatrix(o), viewMat);
+	}
 	
-//	public Matrix4f buildOrthoProjModelMat(GameObject item, Matrix4f ortho) {
-//		return ortho.mulOrthoAffine(buildModelMatrix(item), orthoModelMat);
-//	}
+	public Matrix4f buildOrthoProjModelMat(GameObject item, Matrix4f ortho) {
+		return ortho.mulOrthoAffine(buildModelMatrix(item), orthoModelMat);
+	}
 	
 	public Matrix4f buildModelLightViewMatrix(Matrix4f modelMat, Matrix4f lightViewMat) {
 		return lightViewMat.mulAffine(modelMat, modelLightViewMat);
 	}
 	
-//	public Matrix4f buildModelLightViewMatrix(GameObject o, Matrix4f lightViewMat) {
-//		return buildModelLightViewMatrix(buildModelMatrix(o), lightViewMat);
-//	}
+	public Matrix4f buildModelLightViewMatrix(GameObject o, Matrix4f lightViewMat) {
+		return buildModelLightViewMatrix(buildModelMatrix(o), lightViewMat);
+	}
 	
 	//SETTERS
 	public void setLightViewMat(Matrix4f lvm) {

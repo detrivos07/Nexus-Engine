@@ -4,8 +4,7 @@ import java.io.IOException;
 
 import org.lwjgl.glfw.GLFW;
 
-import nexus.engine.core.io.DisplayManager;
-import nexus.engine.core.io.Keyboard;
+import nexus.engine.core.io.*;
 
 public class Engine implements Runnable {
 	
@@ -15,6 +14,7 @@ public class Engine implements Runnable {
 	
 	private DisplayManager display;
 	private Keyboard board;
+	private Mouse mouse;
 
 	@Override
 	public void run() {
@@ -42,6 +42,8 @@ public class Engine implements Runnable {
 		display.init();
 		board = new Keyboard(display.getWindow().getWindow());
 		board.init();
+		mouse = new Mouse(display.getWindow().getWindow());
+		mouse.init();
 		PROGRAM.init(display);
 	}
 	
@@ -50,7 +52,7 @@ public class Engine implements Runnable {
 	 */
 	void input() {
 		display.update(board);
-		PROGRAM.input(display);
+		PROGRAM.input(display, board, mouse);
 	}
 	
 	/**
