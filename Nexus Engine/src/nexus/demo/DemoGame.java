@@ -15,7 +15,7 @@ import nexus.engine.utils.loaders.OBJLoader;
 
 public class DemoGame implements IProgram {
 	
-private TextureManager texManager;
+	private TextureManager texManager;
 	
 	private Scene3dRenderer renderer;
 	private Camera camera;
@@ -53,6 +53,7 @@ private TextureManager texManager;
 		
 		Mesh mesh = OBJLoader.loadMesh("/models/plane.obj");
 		Material mat = new Material(texManager.getTextureFromID(texManager.textures(), 0).loadSTB());
+		mat.setNormalMap(texManager.getTextureFromID(texManager.normalmaps(), 0).loadSTB());
 		mesh.setMaterial(mat);
 		plane = new GameObject(mesh);
 		plane.setPos(new Vector3f(0, 0, -1.4f));

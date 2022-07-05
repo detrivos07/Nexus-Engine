@@ -36,12 +36,12 @@ public class TextureManager {
 		
 		tloader.initObjectArrayFromFile(path + "normalMaps.json");
 		List<TextureBuilder> normBuilders = convertBuilderList(tloader.getAllBuilders());
-		for (int i = 0; i < normBuilders.size(); i++) addTexture(normBuilders.get(i).build());
+		for (int i = 0; i < normBuilders.size(); i++) addNormalMap(normBuilders.get(i).build());
 		tloader.reset();
 		
 		tloader.initObjectArrayFromFile(path + "heightMaps.json");
 		List<TextureBuilder> heightBuilders = convertBuilderList(tloader.getAllBuilders());
-		for (int i = 0; i < heightBuilders.size(); i++) addTexture(heightBuilders.get(i).build());
+		for (int i = 0; i < heightBuilders.size(); i++) addHeightMap(heightBuilders.get(i).build());
 		tloader.reset();
 		
 		tloader = null;
@@ -88,12 +88,12 @@ public class TextureManager {
 		return normalMaps;
 	}
 	
-	public List<Texture> depthmaps() {
-		return depthMaps;
-	}
-	
 	public List<Texture> heightmaps() {
 		return heightMaps;
+	}
+	
+	public List<Texture> depthmaps() {
+		return depthMaps;
 	}
 	
 	/**
