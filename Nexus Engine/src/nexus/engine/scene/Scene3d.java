@@ -116,7 +116,7 @@ public class Scene3d {
 	
 	//LOCAL
 	void initSkybox() {
-        skybox = new Skybox("/models/skybox.obj", "src/main/resources/skyboxes/basicDay/daybox.png");//TODO:: loading outside of a dedicated class
+        skybox = new Skybox("/models/skybox.obj", "res/skyboxes/basicDay/daybox.png");//TODO:: loading outside of a dedicated class
         skybox.setScale(new Vector3f(skyBoxScale));
 	}
 }

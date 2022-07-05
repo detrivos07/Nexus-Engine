@@ -1,0 +1,12 @@
+[
+	{
+		"iID": 0,
+		"path": "res/rock.png",
+		"tags": ["rock"]
+	},
+	{
+		"iID": 1,
+		"path": "res/terrain.png",
+		"tags": ["terrain"]
+	}
+]
