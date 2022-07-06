@@ -76,7 +76,7 @@ public class DemoGame implements IProgram {
 		else if (board.check(GLFW_KEY_S)) cameraInc.z += 1;
 		if (board.check(GLFW_KEY_A)) cameraInc.x += -1;
 		else if (board.check(GLFW_KEY_D)) cameraInc.x += 1;
-		if (board.check(GLFW_KEY_Q)) cameraInc.y += -1;
+		if (board.check(GLFW_KEY_LEFT_SHIFT)) cameraInc.y += -1;
 		else if (board.check(GLFW_KEY_SPACE)) cameraInc.y += 1;
 		//else cameraInc.y += -1.5f;
 		
