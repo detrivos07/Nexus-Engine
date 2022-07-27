@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="res"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/natives/nix64/lwjgl-glfw-natives-linux.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/natives/nix64/lwjgl-nanovg-natives-linux.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/natives/nix64/lwjgl-natives-linux.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/natives/nix64/lwjgl-openal-natives-linux.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/natives/nix64/lwjgl-opengles-natives-linux.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/natives/nix64/lwjgl-opengl-natives-linux.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/natives/nix64/lwjgl-stb-natives-linux.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/natives/nix64/lwjgl-vma-natives-linux.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/flogger-0.7.4.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/flogger-grpc-context-0.7.4.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/grpc-context-1.2.0.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/gson-2.9.0.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/joml-1.10.4.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/lwjgl.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/lwjgl3-awt-0.1.8.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/lwjgl-cuda.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/lwjgl-glfw.jar" sourcepath="/Artifice Engine/lib/sources/lwjgl-glfw-sources.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/lwjgl-jawt.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/lwjgl-nanovg.jar" sourcepath="/Artifice Engine/lib/sources/lwjgl-nanovg-sources.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/lwjgl-openal.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/lwjgl-opencl.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/lwjgl-opengl.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/lwjgl-opengles.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/lwjgl-stb.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/lwjgl-vma.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/lwjgl-vulkan.jar"/>
+	<classpathentry kind="lib" path="/Artifice Engine/lib/steamworks4j-1.9.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
