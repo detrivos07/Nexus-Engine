@@ -30,7 +30,7 @@ public class Window {
 		
 //		if (!fullscreen) {
 //			GLFWVidMode vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-//			glfwSetWindowPos(window)
+//			glfwSetWindowPos(window, (vidmode.width() - width) / 2, (vidmode.height() - height) / 2);
 //		}
 		glfwShowWindow(window);
 		glfwMakeContextCurrent(window);

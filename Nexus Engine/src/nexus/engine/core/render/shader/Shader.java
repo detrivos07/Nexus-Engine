@@ -20,7 +20,7 @@ import nexus.engine.core.utils.FileUtils;
 
 public class Shader {
 
-private final Map<String, Integer> uniforms;
+	private final Map<String, Integer> uniforms;
 	
 	private int program;
 	private int vID, fID;
@@ -247,7 +247,7 @@ private final Map<String, Integer> uniforms;
 	}
 	
 	/**Links and validates the newly build Shader program*/
-	void link() {//TODO:: FIX
+	void link() {//TODO:: FIX logging
         glLinkProgram(program);
         if (glGetProgrami(program, GL_LINK_STATUS) == 0) throw new IllegalStateException();//logger.atWarning().log("Error linking Shader code: %s", glGetProgramInfoLog(program, 1024));
         
@@ -258,7 +258,7 @@ private final Map<String, Integer> uniforms;
         if (glGetProgrami(program, GL_VALIDATE_STATUS) == 0) throw new IllegalStateException();//logger.atWarning().log("Warning validating Shader code: %s", glGetProgramInfoLog(program, 1024));
     }
 	
-	/**TODO::FIX
+	/**TODO::FIX logging
 	 * Loads the shader code into opengl
 	 * @param path Path to shader text file
 	 * @param type Either GL_VERTEX_SHADER or GL_FRAGMENT_SHADER
