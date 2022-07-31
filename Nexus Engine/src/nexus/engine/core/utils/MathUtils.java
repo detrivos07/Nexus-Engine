@@ -2,7 +2,7 @@ package nexus.engine.core.utils;
 
 import java.util.List;
 
-public class Utils {
+public class MathUtils {
 	
 	public static float[] listFloatToArray(List<Float> list) {
 		int s = list != null ? list.size() : 0;

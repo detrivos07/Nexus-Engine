@@ -5,21 +5,18 @@ import static org.lwjgl.glfw.GLFW.*;
 import org.lwjgl.glfw.GLFWKeyCallback;
 
 public class Keyboard {
+	private static Keyboard keyboard;
 	
 	private int[] keys;
 	
-	private long window;
-	
 	private GLFWKeyCallback kcb;
 	
-	public Keyboard(long window) {
-		this.window = window;
-		
+	private Keyboard() {
 		keys = new int[348];
 		for (int i = 0; i < 348; i++) keys[i] = 0;
 	}
 	
-	public void init() {
+	public void init(long window) {
 		kcb = new GLFWKeyCallback() {
 			@Override
 			public void invoke(long argWindow, int key, int scancode, int action, int mods) {
@@ -33,5 +30,10 @@ public class Keyboard {
 	//GETTERS **************************************************
 	public boolean check(int key) {
 		return keys[key] != 0 ? true : false;
+	}
+	
+	public static Keyboard getInstance() {
+		if (keyboard == null) keyboard = new Keyboard();
+		return keyboard;
 	}
 }

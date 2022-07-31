@@ -29,8 +29,8 @@ public class DisplayManager implements JsonLoader {
 	}
 	
 	/**Runs the basic updates in the window*/
-	public void update(Keyboard board) {
-		window.update(board);
+	public void update() {
+		window.update();
 	}
 	
 	/**Prepares the display for a new frame*/

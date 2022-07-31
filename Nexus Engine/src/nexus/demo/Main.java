@@ -7,7 +7,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		IProgram program = new DemoGame();
-		Engine nexus = new Engine(program);
-		nexus.run();
+		Engine nexus = Engine.getInstance();
+		nexus.init(program);
+		Thread thread = new Thread(nexus, "Nexus");//TODO @dvs:: Move to engine, not the demo
+		thread.run();
 	}
 }

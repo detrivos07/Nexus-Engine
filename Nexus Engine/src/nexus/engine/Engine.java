@@ -2,30 +2,25 @@ package nexus.engine;
 
 import java.io.IOException;
 
-import org.lwjgl.glfw.GLFW;
-
 import nexus.engine.core.io.*;
 
 public class Engine implements Runnable {
+	private static Engine nexus;
 	
 	public static boolean running = false;
 	
 	private IProgram PROGRAM;
 	
 	private DisplayManager display;
-	private Keyboard board;
-	private Mouse mouse;
 
 	@Override
 	public void run() {
 		running = true;
-		init();
 		loop();
 		destroy();
 	}
 	
-	public Engine(IProgram program) { 
-		this.PROGRAM = program;
+	private Engine() {
 		try {
 			this.display = new DisplayManager();
 		} catch (IOException e) {
@@ -38,12 +33,11 @@ public class Engine implements Runnable {
 	 * Initializes the engine
 	 * Primary try/catch loop
 	 */
-	void init() {
+	public void init(IProgram program) {
+		this.PROGRAM = program;
 		display.init();
-		board = new Keyboard(display.getWindow().getWindow());
-		board.init();
-		mouse = new Mouse(display.getWindow().getWindow());
-		mouse.init();
+		Keyboard.getInstance().init(display.getWindow().getWindow());
+		Mouse.getInstance().init(display.getWindow().getWindow());
 		PROGRAM.init(display);
 	}
 	
@@ -51,8 +45,8 @@ public class Engine implements Runnable {
 	 * Updates all input devices
 	 */
 	void input() {
-		display.update(board);
-		PROGRAM.input(display, board, mouse);
+		display.update();
+		PROGRAM.input(display);
 	}
 	
 	/**
@@ -110,5 +104,10 @@ public class Engine implements Runnable {
 				ups = 0;
 			}
 		}
+	}
+	
+	public static Engine getInstance() {
+		if (nexus == null) nexus = new Engine();
+		return nexus;
 	}
 }

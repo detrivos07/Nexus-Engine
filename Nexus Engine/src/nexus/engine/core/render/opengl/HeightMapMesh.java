@@ -10,7 +10,7 @@ import java.util.List;
 import org.joml.Vector3f;
 import org.lwjgl.system.MemoryStack;
 
-import nexus.engine.core.utils.Utils;
+import nexus.engine.core.utils.MathUtils;
 
 public class HeightMapMesh {
 	private static final int MAX_COL = 255 * 255 * 255;
@@ -84,9 +84,9 @@ public class HeightMapMesh {
 			}
 		}
 		
-		float[] posArr = Utils.listFloatToArray(pos);
+		float[] posArr = MathUtils.listFloatToArray(pos);
 		int[] indsArr = inds.stream().mapToInt(i -> i).toArray();
-		float[] texArr = Utils.listFloatToArray(texCoords);
+		float[] texArr = MathUtils.listFloatToArray(texCoords);
 		float[] normsArr = calcNormals(posArr, width, height);
 		this.mesh = new Mesh(posArr, texArr, normsArr, indsArr);
 		Material material = new Material(tex, 0.0f);
@@ -200,6 +200,6 @@ public class HeightMapMesh {
 				norms.add(normal.z);
 			}
 		}
-		return Utils.listFloatToArray(norms);
+		return MathUtils.listFloatToArray(norms);
 	}
 }

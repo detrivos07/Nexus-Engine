@@ -38,9 +38,9 @@ public class Window {
 		setLocalCallbacks();
 	}
 	
-	public void update(Keyboard board) {
+	public void update() {
 		hasResized = false;
-		if (board.check(GLFW_KEY_ESCAPE)) glfwSetWindowShouldClose(window, true);
+		if (Keyboard.getInstance().check(GLFW_KEY_ESCAPE)) glfwSetWindowShouldClose(window, true);
 		if (glfwWindowShouldClose(window)) Engine.running = false;
 		glfwPollEvents();
 	}

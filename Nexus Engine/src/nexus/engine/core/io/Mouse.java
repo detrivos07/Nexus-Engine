@@ -7,10 +7,9 @@ import org.joml.Vector2f;
 import org.lwjgl.glfw.*;
 
 public class Mouse {
+	private static Mouse mouse;
 	
-public static final float MOUSE_SENS = 0.2f;
-	
-	private long window;
+	public static final float MOUSE_SENS = 0.2f;
 	
 	private final Vector2d pos, lastPos, scroll;
 	private final Vector2f displayVec;
@@ -22,9 +21,7 @@ public static final float MOUSE_SENS = 0.2f;
 	private GLFWScrollCallback swc;
 	private GLFWCursorEnterCallback cec;
 	
-	public Mouse(long window) {
-		this.window = window;
-		
+	private Mouse() {
 		pos = new Vector2d();
 		lastPos = new Vector2d(-1);
 		scroll = new Vector2d();
@@ -34,7 +31,7 @@ public static final float MOUSE_SENS = 0.2f;
 		for (int i = 0 ; i < buttons.length; i++) buttons[i] = -1;
 	}
 	
-	public void init() {
+	public void init(long window) {
 		mbc = new GLFWMouseButtonCallback() {
 			public void invoke(long argWindow, int button, int action, int mods) {
 				setButtonState(button, action);
@@ -112,5 +109,10 @@ public static final float MOUSE_SENS = 0.2f;
 	
 	public int check(int key) {
 		return buttons[key];
+	}
+	
+	public static Mouse getInstance() {
+		if (mouse == null) mouse = new Mouse();
+		return mouse;
 	}
 }

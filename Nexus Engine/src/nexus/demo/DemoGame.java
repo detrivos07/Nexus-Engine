@@ -27,6 +27,9 @@ public class DemoGame implements IProgram {
 	private Terrain terrain;
 	private GameObject plane;
 	
+	private Keyboard board;
+	private Mouse mouse;
+	
 	public DemoGame() {
 		cameraInc = new Vector3f();
 		scene = new Scene3d();
@@ -34,6 +37,9 @@ public class DemoGame implements IProgram {
 	
 	@Override
 	public void init(DisplayManager display) {
+		board = Keyboard.getInstance();
+		mouse = Mouse.getInstance();
+		
 		texManager = new TextureManager();
 		try {
 			texManager.initFromFile("/textures/");
@@ -70,7 +76,7 @@ public class DemoGame implements IProgram {
 	}
 	
 	@Override
-	public void input(DisplayManager display, Keyboard board, Mouse mouse) {
+	public void input(DisplayManager display) {
 		cameraInc.set(0, 0, 0);
 		if (board.check(GLFW_KEY_W)) cameraInc.z += -1;
 		else if (board.check(GLFW_KEY_S)) cameraInc.z += 1;
