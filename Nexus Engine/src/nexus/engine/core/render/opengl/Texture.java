@@ -24,7 +24,7 @@ public class Texture {
 	 * Generates Shadow Map texture
 	 * @param w Desired width
 	 * @param h Desired height
-	 * @param pFormat format? idfk
+	 * @param pFormat pixel format
 	 */
 	public Texture(int w, int h, int pFormat) {
 		this.width = w;
