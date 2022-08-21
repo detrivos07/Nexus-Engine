@@ -1,5 +1,6 @@
 package nexus.engine.core.render.opengl;
 
+import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL30.*;
 
 import static org.lwjgl.stb.STBImage.*;
@@ -92,6 +93,37 @@ public class Texture {
 		return this;
 	}
 	
+	public Texture load() {
+		loadSTB2();
+		genGLTexture();
+		return this;
+	}
+	
+	public void unload() {
+		this.destroy();
+		
+		this.raw = null;
+		pixels.clear();
+		this.pixels = null;
+	}
+	
+	public Texture loadSTB2() {
+		try (MemoryStack stack = MemoryStack.stackPush()) {
+			IntBuffer w = stack.mallocInt(1);
+			IntBuffer h = stack.mallocInt(1);
+			IntBuffer channels = stack.mallocInt(1);
+			
+			pixels = stbi_load(path, w, h, channels, 4);
+			if (pixels == null) throw new IllegalStateException("Unable to load STBImage at: " + path);
+			width = w.get();
+			height = h.get();
+		}
+		
+		
+		stbi_image_free(pixels);
+		return this;
+	}
+	
 	/**
 	 * Destroys this object at id in memory
 	 */
@@ -152,9 +184,9 @@ public class Texture {
 		id = glGenTextures();
 		glBindTexture(GL_TEXTURE_2D, id);
 		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
 }

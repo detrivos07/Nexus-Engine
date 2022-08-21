@@ -32,9 +32,9 @@
 	<classpathentry kind="lib" path="lib/lwjgl-nanovg.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-openal.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-opencl.jar"/>
-	<classpathentry kind="lib" path="lib/lwjgl-opengl.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-opengl.jar" sourcepath="lib/sources/lwjgl-opengl-sources.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-opengles.jar"/>
-	<classpathentry kind="lib" path="lib/lwjgl-stb.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-stb.jar" sourcepath="lib/sources/lwjgl-stb-sources.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-vma.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-vulkan.jar"/>
 	<classpathentry kind="lib" path="lib/steamworks4j-1.9.0.jar"/>

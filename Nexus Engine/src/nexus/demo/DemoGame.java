@@ -15,10 +15,14 @@ import nexus.engine.utils.loaders.OBJLoader;
 
 public class DemoGame implements IProgram {
 	
-	private TextureManager texManager;
+	//Local references to singleton classes
+	private Keyboard board;
+	private Mouse mouse;
 	
-	private Scene3dRenderer renderer;
-	private Camera camera;
+	private TextureManager texManager;//engine
+	
+	private Scene3dRenderer renderer;//in scene?
+	private Camera camera;//engine
 	private Scene3d scene;
 	
 	private final Vector3f cameraInc;
@@ -26,9 +30,6 @@ public class DemoGame implements IProgram {
 	
 	private Terrain terrain;
 	private GameObject plane;
-	
-	private Keyboard board;
-	private Mouse mouse;
 	
 	public DemoGame() {
 		cameraInc = new Vector3f();
@@ -44,7 +45,7 @@ public class DemoGame implements IProgram {
 		try {
 			texManager.initFromFile("/textures/");
 		} catch (IOException e) {
-			System.out.println("Unable to read file!");
+			System.out.println("Unable to read file!");//TODO :: TEXMAN should handle all of this shit
 		} catch (NullPointerException e) {
 			System.out.println("Unable to find file!");
 			e.printStackTrace();
@@ -58,14 +59,12 @@ public class DemoGame implements IProgram {
 		
 		
 		Mesh mesh = OBJLoader.loadMesh("/models/plane.obj");
-		Material mat = new Material(texManager.getTextureFromID(texManager.textures(), 0).loadSTB());
-		mat.setNormalMap(texManager.getTextureFromID(texManager.normalmaps(), 0).loadSTB());
+		Material mat = new Material(texManager.getTextureFromID(texManager.textures(), 0).load());
 		mesh.setMaterial(mat);
 		plane = new GameObject(mesh);
 		plane.setPos(new Vector3f(0, 0, -1.4f));
 		plane.setRot(new Quaternionf(0.7071068f, 0, 0, 0.7071068f));
 		plane.setScale(new Vector3f(1.8f,1f,1f));
-		
 		scene.addGameObjects(plane);
 		
 		terrain = new Terrain(2, new Vector3f(10), -0.1f, 0.1f, "res/heightMaps/tile.png", "res/terrain.png", 40);

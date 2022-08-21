@@ -12,6 +12,8 @@ public class Engine implements Runnable {
 	private IProgram PROGRAM;
 	
 	private DisplayManager display;
+	
+	private Thread main;
 
 	@Override
 	public void run() {
@@ -39,6 +41,9 @@ public class Engine implements Runnable {
 		Keyboard.getInstance().init(display.getWindow().getWindow());
 		Mouse.getInstance().init(display.getWindow().getWindow());
 		PROGRAM.init(display);
+		
+		main = new Thread(nexus, "Nexus");
+		main.run();
 	}
 	
 	/**
