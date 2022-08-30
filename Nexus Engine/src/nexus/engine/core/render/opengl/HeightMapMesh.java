@@ -45,6 +45,7 @@ public class HeightMapMesh {
 		hArr = new float[height][width];
 		
 		Texture tex = new Texture(texturePath);
+		tex.loadSTB();//TODO:: CRITICAL
 		
 		float incx = getXLength() / (width - 1);
 		float incz = getZLength() / (height - 1);

@@ -9,7 +9,9 @@ public class Skybox extends GameObject {
 	public Skybox(String mesh, String texture) {
 		super();
 		Mesh skyMesh = OBJLoader.loadMesh(mesh);
-		skyMesh.setMaterial(new Material(new Texture(texture)));
+		Texture t = new Texture(texture);//TODO :: WTF
+		t.loadSTB();
+		skyMesh.setMaterial(new Material(t));
 		setMesh(skyMesh);
 		setPos(0, 0, 0);
 	}

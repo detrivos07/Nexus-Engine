@@ -110,20 +110,6 @@ public class TextureManager {
 		return null;
 	}
 	
-	/**
-	 * Fetches the Texture with the specified tag in the first position
-	 * @param fetchList List of {@link Texture}s to look in
-	 * @param tag The specified tag
-	 * @return The texture wanted.  Null if no such texture exists
-	 */
-	public Texture getTextureFromMainTag(List<Texture> fetchList, String tag) {
-		for (int i = 0; i < fetchList.size(); i++) {
-			Texture temp = fetchList.get(i);
-			if (temp.getTags()[0] == tag) return temp;
-		}
-		return null;
-	}
-	
 	//LOCAL
 	/**
 	 * Converts a {@link Builder} list of {@link TextureBuilder} objects to a {@link TextureBuilder}
