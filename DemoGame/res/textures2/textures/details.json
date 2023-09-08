@@ -1,0 +1,17 @@
+[
+	{
+		"iID": 0,
+		"path": "rock.png",
+		"tags": ["rock", "cobble"]
+	},
+	{
+		"iID": 1,
+		"path": "terrain.png",
+		"tags": ["terrain"]
+	},
+	{
+		"iID": 2,
+		"path": "grassblock.png",
+		"tags": ["grassblock", "minecraft"]
+	}
+]

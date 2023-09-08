@@ -1,0 +1,12 @@
+[
+	{
+		"iID": 0,
+		"path": "res/normalMaps/rockNorms.png",
+		"tags": ["rockNormal"]
+	},
+	{
+		"iID": 1,
+		"path": "res/normalMaps/terrain.png",
+		"tags": ["terrainNormal"]
+	}
+]

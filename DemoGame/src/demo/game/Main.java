@@ -1,4 +1,4 @@
-package nexus.demo;
+package demo.game;
 
 import nexus.engine.Engine;
 

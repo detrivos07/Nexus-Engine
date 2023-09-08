@@ -1,4 +1,4 @@
-package nexus.demo;
+package demo.game;
 
 import static org.lwjgl.glfw.GLFW.*;
 

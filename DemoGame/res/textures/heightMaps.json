@@ -1,0 +1,12 @@
+[
+	{
+		"iID": 0,
+		"path": "res/heightMaps/tile.png",
+		"tags": ["tile"]
+	},
+	{
+		"iID": 1,
+		"path": "res/heightMaps/noiseTexture.png",
+		"tags": ["noise1"]
+	}
+]

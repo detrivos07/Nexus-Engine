@@ -1,0 +1,22 @@
+[
+	{
+		"iID": 100,
+		"path": "heightmap.png",
+		"tags": ["heightmap"]
+	},
+	{
+		"iID": 101,
+		"path": "noiseTexture.png",
+		"tags": ["noise1"]
+	},
+	{
+		"iID": 102,
+		"path": "tile.png",
+		"tags": ["tile"]
+	},
+	{
+		"iID": 103,
+		"path": "perlin.png",
+		"tags": ["perlin"]
+	}
+]

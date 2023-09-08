@@ -1,0 +1,17 @@
+[
+	{
+		"iID": 10,
+		"path": "rockNorms.png",
+		"tags": ["rockNormal"]
+	},
+	{
+		"iID": 11,
+		"path": "terrain.png",
+		"tags": ["terrainNormal"]
+	},
+	{
+		"iID": 12,
+		"path": "NormalMap.png",
+		"tags": ["grassblockNormal", "minecraftNormal"]
+	}
+]
