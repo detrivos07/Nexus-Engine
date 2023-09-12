@@ -43,6 +43,10 @@ import com.detrivos.auto.ui.UI;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
+	
+	public static void main(String[] args) {
+		new Game().start();
+	}
 
 	public static int width = 400;
 	public static int height = width / 16 * 9;
