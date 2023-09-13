@@ -18,16 +18,7 @@ import com.detrivos.auto.graphics.Sprite;
 import com.detrivos.auto.graphics.SpriteSheet;
 import com.detrivos.auto.input.Keyboard;
 import com.detrivos.auto.input.Mouse;
-import com.detrivos.auto.level.tile.ChangeTile;
-import com.detrivos.auto.level.tile.DeadTile;
-import com.detrivos.auto.level.tile.DoorTile;
-import com.detrivos.auto.level.tile.LockerTile;
-import com.detrivos.auto.level.tile.PlayerTile;
-import com.detrivos.auto.level.tile.ToCryoTile;
-import com.detrivos.auto.level.tile.ToLeech1Tile;
-import com.detrivos.auto.level.tile.ToTurHall2Tile;
-import com.detrivos.auto.level.tile.ToTurHall3Tile;
-import com.detrivos.auto.level.tile.ToTurHallTile;
+import com.detrivos.auto.level.tile.*;
 import com.detrivos.auto.projectile.Bullet;
 import com.detrivos.auto.projectile.Projectile;
 import com.detrivos.auto.projectile.Rocket;
@@ -299,27 +290,27 @@ public class Player extends Mob {
 			}
 		}
 
-		if (level.getTile((int) ox, (int) oy) instanceof ToCryoTile) {
+		if (level.getTile((int) ox, (int) oy).equals(Tile.toCryo)) {
 			Game.toCryo = true;
 		} else {
 			Game.toCryo = false;
 		}
-		if (level.getTile((int) ox, (int) oy) instanceof ToTurHallTile) {
+		if (level.getTile((int) ox, (int) oy).equals(Tile.toTurHall)) {
 			Game.toTurHall = true;
 		} else {
 			Game.toTurHall = false;
 		}
-		if (level.getTile((int) ox, (int) oy) instanceof ToTurHall2Tile) {
+		if (level.getTile((int) ox, (int) oy).equals(Tile.toturhall2)) {
 			Game.turhall2 = true;
 		} else {
 			Game.turhall2 = false;
 		}
-		if (level.getTile((int) ox, (int) oy) instanceof ToTurHall3Tile) {
+		if (level.getTile((int) ox, (int) oy).equals(Tile.toturhall3)) {
 			Game.toturhall3 = true;
 		} else {
 			Game.toturhall3 = false;
 		}
-		if (level.getTile((int) ox, (int) oy) instanceof ToLeech1Tile) {
+		if (level.getTile((int) ox, (int) oy).equals(Tile.toleech1)) {
 			Game.toleech1 = true;
 		} else {
 			Game.toleech1 = false;
@@ -519,13 +510,13 @@ public class Player extends Mob {
 	public String thought() {
 		String s = "";
 		if (collision(4, 0) || collision(0, 4) || collision(-14, 0) || collision(0, -14)) {
-			if (level.getTile((int) (ox), (int) (oy)) instanceof PlayerTile) {
+			if (level.getTile((int) (ox), (int) (oy)).equals(Tile.pFloor)) {
 				s = "This one was mine, the only one that didn't get destroyed...";
 			}
-			if (level.getTile((int) (ox), (int) (oy)) instanceof DoorTile) {
+			if (level.getTile((int) (ox), (int) (oy)).equals(Tile.ltd) || level.getTile((int) (ox), (int) (oy)).equals(Tile.lbd)) {
 				s = "Blocked.  By some unknown force...";
 			}
-			if (level.getTile((int) (ox), (int) (oy)) instanceof DeadTile) {
+			if (level.getTile((int) (ox), (int) (oy)).equals(Tile.dFloor)) {
 				if (!collided) {
 					r = random.nextInt(5);
 					collided = true;
@@ -550,7 +541,7 @@ public class Player extends Mob {
 			} else {
 				collided = false;
 			}
-			if (level.getTile((int) (ox), (int) (oy)) instanceof LockerTile) {
+			if (level.getTile((int) (ox), (int) (oy)).equals(Tile.tlw) || level.getTile((int) (ox), (int) (oy)).equals(Tile.tlcw) || level.getTile((int) (ox), (int) (oy)).equals(Tile.blw) || level.getTile((int) (ox), (int) (oy)).equals(Tile.blgw)) {
 				if (level.getTile((int) (ox), (int) (oy)).hasGun()) {
 					s = "A pistol!";
 				}
@@ -560,7 +551,7 @@ public class Player extends Mob {
 				}
 			}
 
-			if (level.getTile((int) (ox), (int) (oy)) instanceof ChangeTile && gunThought) {
+			if (level.getTile((int) (ox), (int) (oy)).equals(Tile.changeFloor) && gunThought) {
 				s = "I should find something to protect myself...";
 			}
 		} else {
