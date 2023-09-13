@@ -115,7 +115,7 @@ public class Tile {
 	public static Tile blueFloor = new Tile(Sprite.blueFloor);
 	
 	public static Tile changeFloor = new ChangeTile(Sprite.whiteFloor);
-	public static Tile shotgun = new ShotgunTile(Sprite.blueFloor).setSolid();
+	public static Tile shotgun = new Tile(Sprite.blueFloor).setSolid();
 	
 	public static Tile pFloor = new Tile(Sprite.whiteFloor).setSolid();
 	public static Tile dFloor = new Tile(Sprite.whiteFloor).setSolid();

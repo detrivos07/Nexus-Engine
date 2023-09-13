@@ -43,7 +43,7 @@ public class Player extends Mob {
 	public static boolean hasScatter = false;
 	public static boolean hasMachine = false;
 	public static boolean hasRocket = false;
-	public static boolean dead = false;
+	private boolean dead = false;
 
 	private Keyboard input;
 	private Sprite sprite;
@@ -738,5 +738,10 @@ public class Player extends Mob {
 		else
 			sprite = Sprite.pink;
 		screen.renderMob((int) x, (int) y, Sprite.rotate(sprite, pdir), this);
+	}
+	
+	//GETTERS
+	public boolean isDead() {
+		return dead;
 	}
 }

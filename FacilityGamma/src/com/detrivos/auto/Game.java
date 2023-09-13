@@ -269,7 +269,7 @@ public class Game extends Canvas implements Runnable {
 		
 		if (!onMainMenu) {
 			if (!onchal) {
-				if (player.dead) {// For respawn
+				if (player.isDead()) {// For respawn
 					if (!rMShown) {
 						showRespawnMenu(false);
 						rMShown = true;
@@ -282,7 +282,7 @@ public class Game extends Canvas implements Runnable {
 					rMShown = false;
 				}
 			} else {
-				if (player.dead) {// For respawn
+				if (player.isDead()) {// For respawn
 					Experience.resetChalTables();
 					if (!rMShown) {
 						showRespawnMenu(true);
@@ -342,12 +342,12 @@ public class Game extends Canvas implements Runnable {
 	
 	private void handleMenus() {
 		if (menu != null && coolDown == 0) menu.tick();
-		if (!onMainMenu && !player.dead && !paused && !onPauseMenu && !onExpMenu) menu = null;
+		if (!onMainMenu && !player.isDead() && !paused && !onPauseMenu && !onExpMenu) menu = null;
 		
 		if (paused) {
 			if (onExpMenu) {
 				menu = expMenu;
-			} else if (!player.dead && !onExpMenu) {
+			} else if (!player.isDead() && !onExpMenu) {
 				menu = pauseMenu;
 			}
 		}
@@ -366,7 +366,7 @@ public class Game extends Canvas implements Runnable {
 			toMainMenu = false;
 		}
 		
-		if (player.dead) Keyboard.changeUnpauseness(true);
+		if (player.isDead()) Keyboard.changeUnpauseness(true);
 		else Keyboard.changeUnpauseness(false);
 		
 	}
@@ -540,10 +540,10 @@ public class Game extends Canvas implements Runnable {
 			screen.renderUI((width / 2) - (menuSelect.WIDTH / 2), 93, menuSelect);
 		}
 
-		if (paused && !player.dead) {
+		if (paused && !player.isDead()) {
 			screen.renderUI((width / 2) - (menuSelect.WIDTH / 2), 93 + 14, pauseSelect);
 		}
-		if (player.dead && !onMainMenu) {
+		if (player.isDead() && !onMainMenu) {
 			screen.renderUI((width / 2) - (UI.deathBG.WIDTH / 2), 44 - (UI.deathBG.HEIGHT / 2), UI.deathBG);
 			screen.renderUI((width / 3) - (UI.respawnSelect.WIDTH / 2) + 1, 170 - (UI.respawnSelect.HEIGHT / 2), UI.respawnSelect);
 			screen.renderUI(((width / 3) * 2) - (UI.respawnSelect.WIDTH / 2), 170 - (UI.respawnSelect.HEIGHT / 2), UI.respawnSelect);
@@ -563,7 +563,7 @@ public class Game extends Canvas implements Runnable {
 			hideGUI = true;
 			if (onMainMenu)
 				g.drawImage(VignetteHelper.titleBI, (absWidth / 2) - 279, 50, 279 * 2, 86 * 2, null);
-			if (paused && !player.dead) 
+			if (paused && !player.isDead()) 
 				g.drawImage(VignetteHelper.pausedBI, (absWidth / 2) - VignetteHelper.titleBI.getWidth(), 50, VignetteHelper.titleBI.getWidth() * 2, (int) (VignetteHelper.titleBI.getHeight() * 1.5), null);
 		} else {
 			hideGUI = false;

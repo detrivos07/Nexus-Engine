@@ -7,6 +7,7 @@ import org.lwjgl.glfw.GLFWKeyCallback;
 public class Keyboard {
 	private static Keyboard keyboard;
 	
+	/**Functional Keys - Direct copies of the GLFW counterparts*/
 	public static final int KEY_A = GLFW_KEY_A,
 							KEY_B = GLFW_KEY_B,
 							KEY_C = GLFW_KEY_C,
