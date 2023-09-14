@@ -6,6 +6,7 @@ import com.detrivos.auto.Game;
 import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.entity.assets.Player;
 import com.detrivos.auto.entity.assets.Turret;
+import com.detrivos.auto.graphics.Screen;
 import com.detrivos.auto.level.Level;
 
 public class TurretSpawner extends Spawner {
@@ -61,5 +62,9 @@ public class TurretSpawner extends Spawner {
 				level.add(new Turret((int) (this.x / 16) + xOffset(5), (int) (this.y / 16) + yOffset(5), Turret.Type.ROCKET));
 			}
 		}
+	}
+
+	@Override
+	public void render(Screen screen) {
 	}
 }

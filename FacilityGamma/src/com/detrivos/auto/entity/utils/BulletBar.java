@@ -50,7 +50,7 @@ public class BulletBar {
 	
 	private void changePB() {
 		int h1 = height;
-		this.height = (int) (p.pistolBullets * 21) / 500;
+		this.height = (int) (p.getPistolBullets() * 21) / 500;
 		int h2 = height;
 		if (h2 - h1 != 0) this.y -= h2 - h1;
 	}
@@ -78,7 +78,7 @@ public class BulletBar {
 	
 	private void changeLM() {
 		int h1 = height;
-		this.height = (int) (p.pistolBullets * 21) / 500;
+		this.height = (int) (p.getPistolBullets() * 21) / 500;
 		int h2 = height;
 		if (h2 - h1 != 0) this.y -= h2 - h1;
 	}

@@ -1,10 +1,10 @@
 package com.detrivos.auto.entity.assets.drops;
 
-import com.detrivos.auto.entity.Mob;
+import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.graphics.Screen;
 import com.detrivos.auto.graphics.Sprite;
 
-public class BulletDrops extends Mob {
+public class BulletDrops extends Entity {
 	
 	public enum BType {
 		PISTOL, SCATTER, MACHINE, ROCKET

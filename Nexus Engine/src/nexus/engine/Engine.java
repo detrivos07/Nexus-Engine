@@ -10,10 +10,9 @@ public class Engine implements Runnable {
 	public static boolean running = false;
 	
 	private IProgram PROGRAM;
+	private Thread main;
 	
 	private DisplayManager display;
-	
-	private Thread main;
 
 	@Override
 	public void run() {

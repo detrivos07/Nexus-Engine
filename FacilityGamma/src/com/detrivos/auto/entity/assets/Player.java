@@ -5,7 +5,7 @@ import java.util.List;
 import com.detrivos.auto.Game;
 import com.detrivos.auto.audio.SoundClip;
 import com.detrivos.auto.entity.Entity;
-import com.detrivos.auto.entity.Mob;
+import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.entity.assets.drops.BulletDrops;
 import com.detrivos.auto.entity.assets.drops.BulletDrops.BType;
 import com.detrivos.auto.entity.assets.drops.Medkit;
@@ -24,7 +24,7 @@ import com.detrivos.auto.projectile.Projectile;
 import com.detrivos.auto.projectile.Rocket;
 import com.detrivos.auto.ui.StoryUI;
 
-public class Player extends Mob {
+public class Player extends Entity {
 
 	public enum Weapon {
 		PISTOL, MACHINE, SCATTER, ROCKET
@@ -54,12 +54,12 @@ public class Player extends Mob {
 
 	private int baseHealth = 100;
 
-	public int pistolBullets = 0;
+	private int pistolBullets = 0;
 	public static int scatterBullets = 0;
 	public int machineBullets = 0;
 	public int rockets = 0;
 
-	public static int kills = 0;
+	private int kills = 0;
 
 	private int fireRate = 0;
 	private int r = random.nextInt(5);
@@ -740,8 +740,25 @@ public class Player extends Mob {
 		screen.renderMob((int) x, (int) y, Sprite.rotate(sprite, pdir), this);
 	}
 	
+	//SETTERS
+	public void setKills(int kills) {
+		this.kills = kills;
+	}
+	
+	public void incrementKills() {
+		setKills(kills + 1);
+	}
+	
 	//GETTERS
 	public boolean isDead() {
 		return dead;
+	}
+	
+	public int getKillAmt() {
+		return kills;
+	}
+	
+	public int getPistolBullets() {
+		return pistolBullets;
 	}
 }

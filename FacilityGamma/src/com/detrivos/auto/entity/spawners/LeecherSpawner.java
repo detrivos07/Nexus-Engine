@@ -5,6 +5,7 @@ import java.util.List;
 import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.entity.assets.Leecher;
 import com.detrivos.auto.entity.assets.Player;
+import com.detrivos.auto.graphics.Screen;
 import com.detrivos.auto.level.Level;
 
 public class LeecherSpawner extends Spawner {
@@ -39,5 +40,9 @@ public class LeecherSpawner extends Spawner {
 				level.add(new Leecher((int) (x + xOffset(4)), (int) (y + yOffset(4))));
 			}
 		}
+	}
+
+	@Override
+	public void render(Screen screen) {
 	}
 }

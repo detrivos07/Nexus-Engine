@@ -3,14 +3,14 @@ package com.detrivos.auto.entity.assets;
 import java.util.List;
 
 import com.detrivos.auto.audio.SoundClip;
-import com.detrivos.auto.entity.Mob;
+import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.graphics.AnimatedSprite;
 import com.detrivos.auto.graphics.Screen;
 import com.detrivos.auto.graphics.Sprite;
 import com.detrivos.auto.graphics.SpriteSheet;
 import com.detrivos.auto.projectile.Projectile;
 
-public class Landmine extends Mob {
+public class Landmine extends Entity {
 	
 	public boolean exploded = false;
 	public boolean hitPlayer = false;

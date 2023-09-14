@@ -1,12 +1,12 @@
 package com.detrivos.auto.entity.assets;
 
-import com.detrivos.auto.entity.Mob;
+import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.graphics.AnimatedSprite;
 import com.detrivos.auto.graphics.Screen;
 import com.detrivos.auto.graphics.Sprite;
 import com.detrivos.auto.graphics.SpriteSheet;
 
-public class CryoPod extends Mob {
+public class CryoPod extends Entity {
 	
 	private boolean player = false;
 	public boolean emerged = false;

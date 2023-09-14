@@ -43,9 +43,10 @@ import com.detrivos.auto.ui.UI;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
+	private static Game game;
 	
 	public static void main(String[] args) {
-		new Game().start();
+		getInstance().start();
 	}
 
 	public static int width = 400;
@@ -206,7 +207,6 @@ public class Game extends Canvas implements Runnable {
 		stop();
 	}
 
-	@SuppressWarnings("static-access")
 	private void tick() {
 		coolDown--;
 		if (coolDown < 0) coolDown = 0;
@@ -261,7 +261,7 @@ public class Game extends Canvas implements Runnable {
 
 		if (onMainMenu) {
 			onchal = false;
-			player.kills = 0;
+			if (player != null) player.setKills(0);
 		}
 		
 		if (key.isPaused(key.escape)) paused = true;
@@ -366,7 +366,7 @@ public class Game extends Canvas implements Runnable {
 			toMainMenu = false;
 		}
 		
-		if (player.isDead()) Keyboard.changeUnpauseness(true);
+		if (player != null) if (player.isDead()) Keyboard.changeUnpauseness(true);
 		else Keyboard.changeUnpauseness(false);
 		
 	}
@@ -399,7 +399,7 @@ public class Game extends Canvas implements Runnable {
 			chal.reset();
 			level = new ChallengeLevel("/levels/challengeSmall.png");
 			player = new Player(16 * 6 - 8, 16 * 6 - 8, key, false);
-			player.kills = 0;
+			player.setKills(0);
 			level.add(player);
 			player.changeMode(false);
 			health = new PlayerStatsBar(player, Type.HEALTH, 0xFFFF0000, 9, 90, 373, 131);
@@ -540,10 +540,10 @@ public class Game extends Canvas implements Runnable {
 			screen.renderUI((width / 2) - (menuSelect.WIDTH / 2), 93, menuSelect);
 		}
 
-		if (paused && !player.isDead()) {
+		if (player != null) if (paused && !player.isDead()) {
 			screen.renderUI((width / 2) - (menuSelect.WIDTH / 2), 93 + 14, pauseSelect);
 		}
-		if (player.isDead() && !onMainMenu) {
+		if (player != null) if (player.isDead() && !onMainMenu) {
 			screen.renderUI((width / 2) - (UI.deathBG.WIDTH / 2), 44 - (UI.deathBG.HEIGHT / 2), UI.deathBG);
 			screen.renderUI((width / 3) - (UI.respawnSelect.WIDTH / 2) + 1, 170 - (UI.respawnSelect.HEIGHT / 2), UI.respawnSelect);
 			screen.renderUI(((width / 3) * 2) - (UI.respawnSelect.WIDTH / 2), 170 - (UI.respawnSelect.HEIGHT / 2), UI.respawnSelect);
@@ -563,7 +563,7 @@ public class Game extends Canvas implements Runnable {
 			hideGUI = true;
 			if (onMainMenu)
 				g.drawImage(VignetteHelper.titleBI, (absWidth / 2) - 279, 50, 279 * 2, 86 * 2, null);
-			if (paused && !player.isDead()) 
+			if (player != null) if (paused && !player.isDead()) 
 				g.drawImage(VignetteHelper.pausedBI, (absWidth / 2) - VignetteHelper.titleBI.getWidth(), 50, VignetteHelper.titleBI.getWidth() * 2, (int) (VignetteHelper.titleBI.getHeight() * 1.5), null);
 		} else {
 			hideGUI = false;
@@ -584,7 +584,7 @@ public class Game extends Canvas implements Runnable {
 		if (onchal && !hideGUI) {
 			g.setColor(Color.WHITE);
 			g.setFont(new Font("Terminal", 1, 30));
-			g.drawString("" + player.kills, 20, 40);
+			g.drawString("" + player.getKillAmt(), 20, 40);
 			g.setColor(Color.GREEN);
 			g.drawString("" + player.exp.expAmount, 20, 80);
 		}
@@ -593,11 +593,11 @@ public class Game extends Canvas implements Runnable {
 			g.setColor(Color.WHITE);
 			g.setFont(bulFont);
 			fm = g.getFontMetrics(bulFont);
-			int sw = fm.stringWidth("" + player.pistolBullets);
+			int sw = fm.stringWidth("" + player.getPistolBullets());
 			int sws = fm.stringWidth("" + player.scatterBullets);
 			int swm = fm.stringWidth("" + player.machineBullets);
 			int swr = fm.stringWidth("" + player.rockets);
-			g.drawString("" + player.pistolBullets, 95 - (sw / 2), (absHeight - (25 * 3)) - 198);
+			g.drawString("" + player.getPistolBullets(), 95 - (sw / 2), (absHeight - (25 * 3)) - 198);
 			g.drawString("" + player.scatterBullets, 95 - (sws / 2), (absHeight - (25 * 3)) - 102);
 			g.drawString("" + player.machineBullets, 95 - (swm / 2), (absHeight - (25 * 3)) - 6);
 			g.drawString("" + player.rockets, 200 - (swr / 2), (absHeight - (25 * 3)) - 102);
@@ -609,5 +609,15 @@ public class Game extends Canvas implements Runnable {
 	
 	private void renderMenus() {
 		
+	}
+	
+	public static Game getInstance() {
+		if(game == null) game = new Game();
+		return game;
+	}
+	
+	//GETTERS
+	public Player getPlayer() {
+		return player;
 	}
 }

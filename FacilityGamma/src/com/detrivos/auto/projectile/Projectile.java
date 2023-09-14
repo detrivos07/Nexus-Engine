@@ -3,7 +3,7 @@ package com.detrivos.auto.projectile;
 import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.graphics.Sprite;
 
-public class Projectile extends Entity {
+public abstract class Projectile extends Entity {
 
 	protected final double xOrigin, yOrigin;
 	protected double angle;
