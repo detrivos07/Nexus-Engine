@@ -4,7 +4,14 @@ import artifice.engine.*;
 import artifice.engine.io.*;
 import artifice.engine.sound.*;
 
-public class DummyGame implements IGameLogic {
+public class Host implements IGameLogic {
+	
+	public static void main(String[] args) {
+		IGameLogic game = new Host();
+		Engine artifice = new Engine(game, "Host");
+		Thread thread = new Thread(artifice, "ArtificeEngine");
+		thread.start();
+	}
 	
 	private Renderer renderer;
 	
