@@ -1,7 +1,5 @@
 package demo.game;
 
-import java.io.IOException;
-
 import org.joml.*;
 
 import nexus.engine.Engine;
@@ -45,14 +43,8 @@ public class DemoGame implements IProgram {
 		mouse = Mouse.getInstance();
 		
 		texManager = new TextureManager();
-		try {
-			texManager.initFromFile("/textures/");
-		} catch (IOException e) {
-			System.out.println("Unable to read file!");//TODO :: TEXMAN should handle all of this shit
-		} catch (NullPointerException e) {
-			System.out.println("Unable to find file!");
-			e.printStackTrace();
-		}
+		texManager.initFromFile("/textures/");
+		
 		camera = new Camera();
 		
 		scene.init();

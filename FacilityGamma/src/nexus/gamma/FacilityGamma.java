@@ -3,6 +3,9 @@ package nexus.gamma;
 import nexus.engine.Engine;
 import nexus.engine.IProgram;
 import nexus.engine.core.io.*;
+import nexus.engine.core.render.Scene3dRenderer;
+import nexus.engine.core.render.opengl.TextureManager;
+import nexus.engine.scene.Scene;
 
 public class FacilityGamma implements IProgram {
 	
@@ -13,6 +16,8 @@ public class FacilityGamma implements IProgram {
 	//Local references to singleton classes
 	private Keyboard board;
 	private Mouse mouse;
+	
+	private TextureManager texManager;
 
 	public FacilityGamma() {
 	}

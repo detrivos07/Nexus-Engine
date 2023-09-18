@@ -26,23 +26,35 @@ public class TextureManager {
 	 * @param path Path to .json file
 	 * @throws IOException
 	 */
-	public void initFromFile(String path) throws IOException {
+	public void initFromFile(String path) {
 		TextureLoader tloader = new TextureLoader();
 		
-		tloader.initObjectArrayFromFile(path + "textures.json");
-		List<TextureBuilder> texBuilders = convertBuilderList(tloader.getAllBuilders());
-		for (int i = 0; i < texBuilders.size(); i++) addTexture(texBuilders.get(i).build());
-		tloader.reset();
+		try {
+			tloader.initObjectArrayFromFile(path + "textures.json");
+			List<TextureBuilder> texBuilders = convertBuilderList(tloader.getAllBuilders());
+			for (int i = 0; i < texBuilders.size(); i++) addTexture(texBuilders.get(i).build());
+			tloader.reset();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		tloader.initObjectArrayFromFile(path + "normalMaps.json");
-		List<TextureBuilder> normBuilders = convertBuilderList(tloader.getAllBuilders());
-		for (int i = 0; i < normBuilders.size(); i++) addNormalMap(normBuilders.get(i).build());
-		tloader.reset();
+		try {
+			tloader.initObjectArrayFromFile(path + "normalMaps.json");
+			List<TextureBuilder> normBuilders = convertBuilderList(tloader.getAllBuilders());
+			for (int i = 0; i < normBuilders.size(); i++) addNormalMap(normBuilders.get(i).build());
+			tloader.reset();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		tloader.initObjectArrayFromFile(path + "heightMaps.json");
-		List<TextureBuilder> heightBuilders = convertBuilderList(tloader.getAllBuilders());
-		for (int i = 0; i < heightBuilders.size(); i++) addHeightMap(heightBuilders.get(i).build());
-		tloader.reset();
+		try {
+			tloader.initObjectArrayFromFile(path + "heightMaps.json");
+			List<TextureBuilder> heightBuilders = convertBuilderList(tloader.getAllBuilders());
+			for (int i = 0; i < heightBuilders.size(); i++) addHeightMap(heightBuilders.get(i).build());
+			tloader.reset();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		tloader = null;
 	}
