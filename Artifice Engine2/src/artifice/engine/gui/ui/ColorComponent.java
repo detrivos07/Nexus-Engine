@@ -2,11 +2,16 @@ package artifice.engine.gui.ui;
 
 import static org.lwjgl.nanovg.NanoVG.*;
 
+import java.awt.Cursor;
+
 import org.joml.Vector2d;
 import org.lwjgl.nanovg.NVGColor;
 
-import artifice.engine.gui.*;
-import artifice.engine.io.*;
+import artifice.engine.gui.GUI;
+import artifice.engine.gui.GUIComponent;
+import artifice.engine.io.Window;
+import nexus.engine.core.io.Keyboard;
+import nexus.engine.core.io.Mouse;
 
 public class ColorComponent extends UIComponent {
 	
@@ -38,9 +43,9 @@ public class ColorComponent extends UIComponent {
 	}
 
 	@Override
-	public void input(Keyboard board, Cursor cursor) {
+	public void input(Keyboard board, Mouse mouse) {
 		if (isHoverable()) {
-			if (isHovered(cursor)) active = rgba(hovCol);
+			if (isHovered(mouse)) active = rgba(hovCol);
 			else active = rgba(colour);
 		}
 	}
@@ -80,7 +85,7 @@ public class ColorComponent extends UIComponent {
 		return hoverable;
 	}
 	
-	public boolean isHovered(Cursor cursor) {
+	public boolean isHovered(Mouse cursor) {
 		Vector2d mp = cursor.getScreenPos();
 		if (mp.x > (ui.getX() + comp.getX() + x) && mp.x < (ui.getX() + comp.getX() + x) + w && mp.y > (ui.getY() + comp.getY() + y) && mp.y < (ui.getY() + comp.getY() + y) + h) return true; 
 		return false;

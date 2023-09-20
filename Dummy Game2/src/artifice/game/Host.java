@@ -1,8 +1,10 @@
 package artifice.game;
 
 import artifice.engine.*;
-import artifice.engine.io.*;
-import artifice.engine.sound.*;
+import artifice.engine.io.Camera;
+import artifice.engine.io.Window;
+import nexus.engine.core.io.Mouse;
+import nexus.engine.sound.*;
 
 public class Host implements IGameLogic {
 	
@@ -17,7 +19,8 @@ public class Host implements IGameLogic {
 	
 	private DummyLevel level;
 	
-	SoundManager sm;
+	private SoundManager sm;
+	private Mouse mouse;
 	
 	MainMenu menu;
 	
@@ -27,11 +30,12 @@ public class Host implements IGameLogic {
 	public void init(Window window) {
 		renderer = new Renderer();
 		renderer.init(window);
+		mouse = Mouse.getInstance();
 		
 		level = new DummyLevel(AssetLoader.loadAtlas("res/MapSet1"), "res/levels/test", 32);
 		if (level != null) inLevel = true;
 		
-		sm = new SoundManager();
+		sm = SoundManager.getInstance();
 		sm.init();
 		SoundBuffer sb = new SoundBuffer("res/blockPlace.ogg");
 		sm.addBuffer(sb);
@@ -53,12 +57,11 @@ public class Host implements IGameLogic {
 	}
 	
 	@Override
-	public void input(Window window, Camera camera, Keyboard keyboard, Cursor cursor) {
+	public void input(Window window, Camera camera) {
 		if (inLevel) {
 			level.calculateView(window);
-			level.input(window, camera, keyboard, cursor, sm);
+			level.input(window, camera, mouse, sm);
 		} else {
-			menu.input(keyboard, cursor);
 			if (menu.start()) {
 				level = new DummyLevel(AssetLoader.loadAtlas("res/MapSet1"), "res/levels/test", 32);
 				inLevel = true;

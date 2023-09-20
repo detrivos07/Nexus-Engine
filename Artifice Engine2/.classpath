@@ -27,5 +27,6 @@
 	<classpathentry kind="lib" path="/Nexus Engine/lib/natives/win64/lwjgl-openal-natives-windows.jar"/>
 	<classpathentry kind="lib" path="/Nexus Engine/lib/natives/win64/lwjgl-opengl-natives-windows.jar"/>
 	<classpathentry kind="lib" path="/Nexus Engine/lib/natives/win64/lwjgl-stb-natives-windows.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Nexus Engine"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

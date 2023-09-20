@@ -4,10 +4,11 @@ import static org.lwjgl.nanovg.NanoVG.*;
 import static org.lwjgl.nanovg.NanoVGGL3.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
-import java.nio.*;
+import java.nio.ByteBuffer;
 
-import artifice.engine.io.*;
+import artifice.engine.io.Window;
 import artifice.engine.utils.LoaderUtils;
+import nexus.engine.core.io.Mouse;
 
 public class GUI {
 	
@@ -34,8 +35,8 @@ public class GUI {
 		if (f == -1) throw new IllegalStateException("Could not generate NVG font");
 	}
 	
-	public void input(Keyboard board, Cursor cursor) {
-		for (GUIComponent component : comps) if (component != null) component.input(board, cursor);
+	public void input(Mouse mouse) {
+		for (GUIComponent component : comps) if (component != null) component.input(mouse);
 	}
 	
 	public void update() {

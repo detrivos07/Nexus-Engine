@@ -1,12 +1,14 @@
 package artifice.game;
 
-import org.joml.*;
+import org.joml.Vector2i;
 
-import artifice.engine.io.*;
-import artifice.engine.level.*;
-import artifice.engine.level.tile.*;
+import artifice.engine.io.Camera;
+import artifice.engine.io.Window;
+import artifice.engine.level.Level;
+import artifice.engine.level.tile.TileMap;
 import artifice.engine.render.texture.TextureAtlas;
-import artifice.engine.sound.SoundManager;
+import nexus.engine.core.io.Mouse;
+import nexus.engine.sound.SoundManager;
 
 public class DummyLevel extends Level {
 
@@ -37,9 +39,9 @@ public class DummyLevel extends Level {
 		this.height = tmap.getHeight();
 	}
 	
-	public void input(Window window, Camera camera, Keyboard board, Cursor cursor, SoundManager sm) {
-		setMouseWorldPos(cursor.getScreenPos().x, cursor.getScreenPos().y, camera, window);
-		for (int i = 0; i < ents.size(); i++) if (ents.get(i) instanceof Player) ((Player) ents.get(i)).input(window, camera, board, cursor, sm);
+	public void input(Window window, Camera camera, Mouse mouse, SoundManager sm) {
+		setMouseWorldPos(mouse.getScreenPos().x, mouse.getScreenPos().y, camera, window);
+		for (int i = 0; i < ents.size(); i++) if (ents.get(i) instanceof Player) ((Player) ents.get(i)).input(window, camera, sm);
 	}
 
 	@Override

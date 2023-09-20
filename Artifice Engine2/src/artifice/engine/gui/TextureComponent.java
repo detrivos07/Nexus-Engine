@@ -5,10 +5,9 @@ import static org.lwjgl.nanovg.NanoVGGL3.nvglCreateImageFromHandle;
 
 import org.lwjgl.nanovg.NVGPaint;
 
-import artifice.engine.io.Cursor;
-import artifice.engine.io.Keyboard;
 import artifice.engine.io.Window;
 import artifice.engine.render.texture.Texture;
+import nexus.engine.core.io.Mouse;
 
 public class TextureComponent extends GUIComponent {
 
@@ -23,7 +22,7 @@ public class TextureComponent extends GUIComponent {
 	}
 
 	@Override
-	public void input(Keyboard board, Cursor cursor) {
+	public void input(Mouse mouse) {
 	}
 
 	@Override

@@ -23,21 +23,21 @@ public class FacilityGamma implements IProgram {
 	}
 
 	@Override
-	public void init(DisplayManager display) {
+	public void init() {
 		board = Keyboard.getInstance();
 		mouse = Mouse.getInstance();
 	}
 
 	@Override
-	public void input(DisplayManager display) {
+	public void input() {
 	}
 
 	@Override
-	public void update(DisplayManager display) {
+	public void update() {
 	}
 
 	@Override
-	public void render(DisplayManager display) {
+	public void render() {
 	}
 
 	@Override

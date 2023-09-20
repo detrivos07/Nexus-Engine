@@ -4,16 +4,19 @@ import static artifice.engine.gui.ui.ColorComponent.rgba;
 import static org.lwjgl.glfw.GLFW.glfwSetWindowShouldClose;
 
 import artifice.engine.gui.*;
-import artifice.engine.io.Cursor;
-import artifice.engine.io.Keyboard;
 import artifice.engine.io.Window;
 import artifice.engine.render.texture.Texture;
+import nexus.engine.core.io.Keyboard;
+import nexus.engine.core.io.Mouse;
 
 public class MainMenu {
 
 	GUI ui;
 	
 	boolean startGame = false;
+	
+	private Keyboard board;
+	private Mouse mouse;
 	
 	public MainMenu(Window window) {
 		ui = new GUI(0, 0, window.getWidth(), window.getHeight());
@@ -44,10 +47,13 @@ public class MainMenu {
 		};
 		exit.initCols(rgba(0,0,0,0), rgba(0,80,255,40));
 		ui.addComponent(exit, 0);
+		
+		board = Keyboard.getInstance();
+		mouse = Mouse.getInstance();
 	}
 	
-	public void input(Keyboard board, Cursor cursor) {
-		ui.input(board, cursor);
+	public void input() {
+		ui.input(mouse);
 	}
 	
 	public void update() {

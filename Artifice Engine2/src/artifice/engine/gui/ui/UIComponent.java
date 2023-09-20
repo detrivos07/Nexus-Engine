@@ -1,7 +1,10 @@
 package artifice.engine.gui.ui;
 
-import artifice.engine.gui.*;
-import artifice.engine.io.*;
+import artifice.engine.gui.GUI;
+import artifice.engine.gui.GUIComponent;
+import artifice.engine.io.Window;
+import nexus.engine.core.io.Keyboard;
+import nexus.engine.core.io.Mouse;
 
 public abstract class UIComponent {
 	
@@ -35,7 +38,7 @@ public abstract class UIComponent {
 		this.h = h;
 	}
 	
-	public abstract void input(Keyboard board, Cursor cursor);
+	public abstract void input(Keyboard board, Mouse mouse);
 	public abstract void update();
 	public abstract void render(Window window);
 	public abstract void destroy();

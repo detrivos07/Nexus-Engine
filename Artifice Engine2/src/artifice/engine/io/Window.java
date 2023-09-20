@@ -38,6 +38,7 @@ public class Window {
 	public void update() {
 		hasResized = false;
 		if (glfwWindowShouldClose(window)) Engine.running = false;
+		glfwPollEvents();
 	}
 	
 	public void restore() {

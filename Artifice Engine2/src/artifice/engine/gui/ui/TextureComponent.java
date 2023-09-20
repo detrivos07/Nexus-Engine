@@ -3,11 +3,14 @@ package artifice.engine.gui.ui;
 import static org.lwjgl.nanovg.NanoVG.*;
 import static org.lwjgl.nanovg.NanoVGGL3.nvglCreateImageFromHandle;
 
-import org.lwjgl.nanovg.*;
+import org.lwjgl.nanovg.NVGPaint;
 
-import artifice.engine.gui.*;
-import artifice.engine.io.*;
+import artifice.engine.gui.GUI;
+import artifice.engine.gui.GUIComponent;
+import artifice.engine.io.Window;
 import artifice.engine.render.texture.Texture;
+import nexus.engine.core.io.Keyboard;
+import nexus.engine.core.io.Mouse;
 
 public class TextureComponent extends ColorComponent {
 	
@@ -27,9 +30,9 @@ public class TextureComponent extends ColorComponent {
 	}
 	
 	@Override
-	public void input(Keyboard board, Cursor cursor) {
+	public void input(Keyboard board, Mouse mouse) {
 		if (isHoverable()) {
-			if (isHovered(cursor)) activet = t2;
+			if (isHovered(mouse)) activet = t2;
 			else activet = t;
 		}
 	}

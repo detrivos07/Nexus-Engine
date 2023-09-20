@@ -1,7 +1,5 @@
 package nexus.engine;
 
-import java.io.IOException;
-
 import nexus.engine.core.io.*;
 
 public class Engine implements Runnable {
@@ -22,12 +20,7 @@ public class Engine implements Runnable {
 	}
 	
 	private Engine() {
-		try {
-			this.display = new DisplayManager();
-		} catch (IOException e) {
-			System.out.println("NO LOAD DISPLAY");
-			e.printStackTrace();
-		}
+		this.display = DisplayManager.getInstance();
 	}
 	
 	/**
@@ -39,7 +32,7 @@ public class Engine implements Runnable {
 		display.init();
 		Keyboard.getInstance().init(display.getWindow().getWindow());
 		Mouse.getInstance().init(display.getWindow().getWindow());
-		PROGRAM.init(display);
+		PROGRAM.init();
 		
 		main = new Thread(nexus, "Nexus");
 		main.run();
@@ -48,16 +41,16 @@ public class Engine implements Runnable {
 	/**
 	 * Updates all input devices
 	 */
-	void input() {
+	public void input() {
 		display.update();
-		PROGRAM.input(display);
+		PROGRAM.input();
 	}
 	
 	/**
 	 * Updates all engine devices
 	 */
 	void update() {
-		PROGRAM.update(display);
+		PROGRAM.update();
 	}
 	
 	/**
@@ -65,7 +58,7 @@ public class Engine implements Runnable {
 	 */
 	void render() {
 		display.preRender();
-		PROGRAM.render(display);
+		PROGRAM.render();
 		display.postRender();
 	}
 	

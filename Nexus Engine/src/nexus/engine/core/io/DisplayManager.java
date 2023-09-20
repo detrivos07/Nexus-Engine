@@ -10,16 +10,21 @@ import nexus.engine.utils.loaders.JsonLoader;
 
 public class DisplayManager implements JsonLoader {
 	private static final String defaultPath = "/window/defaultWindow.json";
+	private static DisplayManager displayManager;
 	
 	private Window window;
 	private WindowContext context;
 	
-	public DisplayManager() throws IOException {
-		JsonReader reader = gson.newJsonReader(FileUtils.newReader(defaultPath));
-		window = gson.fromJson(reader, Window.class);
-		context = window.getCTX().contains("gl") ? new GLWindowContext() : null;
-		window.setContext(context);
-		reader.close();
+	public DisplayManager() {
+		try {
+			JsonReader reader = gson.newJsonReader(FileUtils.newReader(defaultPath));
+			window = gson.fromJson(reader, Window.class);
+			context = window.getCTX().contains("gl") ? new GLWindowContext() : null;
+			window.setContext(context);
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**Initializes the window and the context*/
@@ -52,5 +57,10 @@ public class DisplayManager implements JsonLoader {
 	//GETTERS
 	public Window getWindow() {
 		return window;
+	}
+	
+	public static DisplayManager getInstance() {
+		if (displayManager == null) displayManager = new DisplayManager();
+		return displayManager;
 	}
 }

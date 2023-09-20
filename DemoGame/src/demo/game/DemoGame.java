@@ -19,6 +19,8 @@ public class DemoGame implements IProgram {
 	//Local references to singleton classes
 	private Keyboard board;
 	private Mouse mouse;
+	private DisplayManager display;
+	//*/
 	
 	private TextureManager texManager;//engine
 	
@@ -38,9 +40,10 @@ public class DemoGame implements IProgram {
 	}
 	
 	@Override
-	public void init(DisplayManager display) {
+	public void init() {
 		board = Keyboard.getInstance();
 		mouse = Mouse.getInstance();
+		display = DisplayManager.getInstance();
 		
 		texManager = new TextureManager();
 		texManager.initFromFile("/textures/");
@@ -70,7 +73,7 @@ public class DemoGame implements IProgram {
 	}
 	
 	@Override
-	public void input(DisplayManager display) {
+	public void input() {
 		cameraInc.set(0, 0, 0);
 		if (board.check(Keyboard.KEY_W)) cameraInc.z += -1;
 		else if (board.check(Keyboard.KEY_S)) cameraInc.z += 1;
@@ -80,7 +83,7 @@ public class DemoGame implements IProgram {
 		else if (board.check(Keyboard.KEY_SPACE)) cameraInc.y += 1;
 		//else cameraInc.y += -1.5f;
 		
-		if (mouse.check(Mouse.BUTTON_1) == 1) {
+		if (mouse.check(Mouse.BUTTON_1)) {
 			Vector2f rotv = new Vector2f(mouse.getDisplayVec());
 			mouse.getDisplayVec().zero();
 			camera.rotate(rotv.x * Mouse.MOUSE_SENS, rotv.y * Mouse.MOUSE_SENS, 0);
@@ -88,7 +91,7 @@ public class DemoGame implements IProgram {
 	}
 	
 	@Override
-	public void update(DisplayManager display) {
+	public void update() {
 		camera.move(cameraInc.x * CAMERA_STEP, cameraInc.y * CAMERA_STEP, cameraInc.z * CAMERA_STEP);
 		
 		//float height = terrain.getHeight(camera.getPos()) + 1.0f;
@@ -102,7 +105,7 @@ public class DemoGame implements IProgram {
 	}
 	
 	@Override
-	public void render(DisplayManager display) {
+	public void render() {
 		renderer.render();
 	}
 	

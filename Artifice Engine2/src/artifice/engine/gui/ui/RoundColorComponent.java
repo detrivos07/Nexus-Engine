@@ -5,8 +5,10 @@ import static org.lwjgl.nanovg.NanoVG.*;
 import org.joml.Vector2d;
 import org.lwjgl.nanovg.NVGColor;
 
-import artifice.engine.gui.*;
-import artifice.engine.io.*;
+import artifice.engine.gui.GUI;
+import artifice.engine.gui.GUIComponent;
+import artifice.engine.io.Window;
+import nexus.engine.core.io.Mouse;
 
 public class RoundColorComponent extends ColorComponent {
 	
@@ -25,7 +27,7 @@ public class RoundColorComponent extends ColorComponent {
 		nvgFill(ui.getVG());
 	}
 	
-	public boolean isHovered(Cursor cursor) {
+	public boolean isHovered(Mouse cursor) {
 		Vector2d mp = cursor.getScreenPos();
 		return Math.pow(mp.x - (ui.getX() + x), 2) + Math.pow(mp.y - (ui.getY() + y), 2) < Math.pow(radius, 2);
 	}

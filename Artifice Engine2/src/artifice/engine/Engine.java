@@ -1,10 +1,12 @@
 package artifice.engine;
 
-import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL11.glViewport;
 
 import java.io.File;
 
 import artifice.engine.io.*;
+import nexus.engine.core.io.Keyboard;
+import nexus.engine.core.io.Mouse;
 
 public class Engine implements Runnable {
 	public static boolean running = false;
@@ -13,8 +15,6 @@ public class Engine implements Runnable {
 	private String title;
 	
 	private Window window;
-	private Keyboard board;
-	private Cursor cursor;
 	private Camera camera;
 	
 	@Override
@@ -33,9 +33,8 @@ public class Engine implements Runnable {
 	
 	void init() {
 		window = new Window(1600, 900, title);
-		board = new Keyboard(window.getWindow());
-		cursor = new Cursor(window);
-		cursor.init();
+		Keyboard.getInstance().init(window.getWindow());
+		Mouse.getInstance().init(window.getWindow());
 		
 		camera = new Camera(window.getWidth(), window.getHeight());
 		
@@ -44,10 +43,8 @@ public class Engine implements Runnable {
 	
 	void input() {
 		window.update();
-		board.input();
-		cursor.input();
 		
-		GAME.input(window, camera, board, cursor);
+		GAME.input(window, camera);
 	}
 	
 	void update() {

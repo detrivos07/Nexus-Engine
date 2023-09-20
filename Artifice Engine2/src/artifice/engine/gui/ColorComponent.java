@@ -4,9 +4,8 @@ import static org.lwjgl.nanovg.NanoVG.*;
 
 import org.lwjgl.nanovg.NVGColor;
 
-import artifice.engine.io.Cursor;
-import artifice.engine.io.Keyboard;
 import artifice.engine.io.Window;
+import nexus.engine.core.io.Mouse;
 
 public class ColorComponent extends GUIComponent {
 	
@@ -21,7 +20,7 @@ public class ColorComponent extends GUIComponent {
 	}
 	
 	@Override
-	public void input(Keyboard board, Cursor cursor) {
+	public void input(Mouse mouse) {
 	}
 	
 	@Override

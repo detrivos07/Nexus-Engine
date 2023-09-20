@@ -1,16 +1,17 @@
 package artifice.engine.gui;
 
-import static org.lwjgl.glfw.GLFW.*;
+import static artifice.engine.gui.NVGUtils.rgba;
 import static org.lwjgl.nanovg.NanoVG.*;
 import static org.lwjgl.nanovg.NanoVGGL3.nvglCreateImageFromHandle;
-import static artifice.engine.gui.NVGUtils.*;
 
 import org.joml.Vector2d;
-import org.lwjgl.nanovg.*;
+import org.lwjgl.nanovg.NVGColor;
+import org.lwjgl.nanovg.NVGPaint;
 
 import artifice.engine.gui.ui.TextComponent;
-import artifice.engine.io.*;
+import artifice.engine.io.Window;
 import artifice.engine.render.texture.Texture;
+import nexus.engine.core.io.Mouse;
 
 public class ButtonComponent extends GUIComponent {
 	
@@ -41,13 +42,13 @@ public class ButtonComponent extends GUIComponent {
 	}
 	
 	@Override
-	public void input(Keyboard board, Cursor cursor) {
-		if (isHovered(cursor))  {
+	public void input(Mouse mouse) {
+		if (isHovered(mouse))  {
 			if (colup) active = rgba(select);
 			if (texup) actTex = selectTex;
 			if (text != null) text.hover = true;
 			
-			if (cursor.isButtonPressed(GLFW_MOUSE_BUTTON_1)) invoke();
+			if (mouse.check(Mouse.BUTTON_1)) invoke();
 			
 		} else {
 			if (colup) active = rgba(base);
@@ -99,7 +100,7 @@ public class ButtonComponent extends GUIComponent {
 		text = new TextComponent(ui, this, w/2, h/2, words, size, NVG_ALIGN_CENTER | NVG_ALIGN_MIDDLE, base, selected);
 	}
 	
-	public boolean isHovered(Cursor cursor) {
+	public boolean isHovered(Mouse cursor) {
 		Vector2d mp = cursor.getScreenPos();
 		if (mp.x > (ui.getX() + x) && mp.x < (ui.getX() + x) + w && mp.y > (ui.getY() + y) && mp.y < (ui.getY() + y) + h) return true; 
 		return false;

@@ -14,7 +14,7 @@ import org.joml.Vector2f;
 
 import artifice.engine.render.model.InstMaterial;
 import artifice.engine.render.texture.Texture;
-import artifice.engine.utils.AABB;
+import nexus.engine.core.collision.AABB;
 
 public class TileMap {
 	

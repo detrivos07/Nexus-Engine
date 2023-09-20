@@ -10,7 +10,8 @@ import artifice.engine.render.model.Mesh;
 import artifice.engine.render.shader.Shader;
 import artifice.engine.render.texture.Texture;
 import artifice.engine.utils.*;
-import artifice.engine.utils.AABB.Collision;
+import nexus.engine.core.collision.AABB;
+import nexus.engine.core.collision.AABB.Collision;
 
 public abstract class Entity {
 	static int nID = 0;

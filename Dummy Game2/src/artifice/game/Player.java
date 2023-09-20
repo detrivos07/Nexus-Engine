@@ -8,33 +8,41 @@ import artifice.engine.io.*;
 import artifice.engine.level.Level;
 import artifice.engine.level.entity.Entity;
 import artifice.engine.level.entity.Projectile;
-import artifice.engine.sound.SoundManager;
-import artifice.engine.utils.AABB;
+import nexus.engine.core.collision.AABB;
+import nexus.engine.core.io.Keyboard;
+import nexus.engine.core.io.Mouse;
+import nexus.engine.sound.SoundManager;
 
 public class Player extends Entity {
 	
 	int fireRate = 0;
 	double dir = 0;
+	
+	private Keyboard board;
+	private Mouse mouse;
 
 	public Player(Level level, Vector2i pos) {
 		super(level, pos);
 		this.bb = new AABB(new Vector2f(pos.x, pos.y), new Vector2f(scale.x - 0.2f, scale.y - 0.1f));
 		speed = new Vector3f(13.0f * (1.0f/60.0f), 13.0f * (1.0f/60.0f), 18.0f * (1.0f/60.0f));
 		fireRate = 13;
+		
+		board = Keyboard.getInstance();
+		mouse = Mouse.getInstance();
 	}
 	
-	public void input(Window window, Camera camera, Keyboard board, Cursor cursor, SoundManager sm) {
-		if (board.isKeyDown(GLFW_KEY_LEFT_SHIFT)) speed.x = speed.z;
+	public void input(Window window, Camera camera, SoundManager sm) {
+		if (board.check(GLFW_KEY_LEFT_SHIFT)) speed.x = speed.z;
 		else speed.x = speed.y;
-		if (board.isKeyDown(GLFW_KEY_W)) movement.add(new Vector3f(0, speed.x, 0));
-		if (board.isKeyDown(GLFW_KEY_S)) movement.add(new Vector3f(0, -speed.x, 0));
-		if (board.isKeyDown(GLFW_KEY_A)) movement.add(new Vector3f(-speed.x, 0, 0));
-		if (board.isKeyDown(GLFW_KEY_D)) movement.add(new Vector3f(speed.x, 0, 0));
+		if (board.check(GLFW_KEY_W)) movement.add(new Vector3f(0, speed.x, 0));
+		if (board.check(GLFW_KEY_S)) movement.add(new Vector3f(0, -speed.x, 0));
+		if (board.check(GLFW_KEY_A)) movement.add(new Vector3f(-speed.x, 0, 0));
+		if (board.check(GLFW_KEY_D)) movement.add(new Vector3f(speed.x, 0, 0));
 		
 		postMove();
 		camera.setPos(pos.mul(-level.getScale(), new Vector3f()));
 		
-		if (fireRate == 0 & cursor.isButtonDown(GLFW_MOUSE_BUTTON_1)) {
+		if (fireRate == 0 && mouse.check(Mouse.BUTTON_1)) {
 			shoot(level);
 			if (!sm.getSource("place").isPlaying());
 			sm.playSource("place");
