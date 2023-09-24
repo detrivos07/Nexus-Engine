@@ -5,22 +5,16 @@ import java.util.List;
 import com.detrivos.auto.Game;
 import com.detrivos.auto.audio.SoundClip;
 import com.detrivos.auto.entity.Entity;
-import com.detrivos.auto.entity.Mob;
 import com.detrivos.auto.entity.assets.drops.BulletDrops;
 import com.detrivos.auto.entity.assets.drops.BulletDrops.BType;
 import com.detrivos.auto.entity.assets.drops.Medkit;
 import com.detrivos.auto.entity.assets.drops.Medkit.Tier;
 import com.detrivos.auto.entity.utils.HealthBar;
 import com.detrivos.auto.experience.Experience;
-import com.detrivos.auto.graphics.AnimatedSprite;
-import com.detrivos.auto.graphics.Screen;
-import com.detrivos.auto.graphics.Sprite;
-import com.detrivos.auto.graphics.SpriteSheet;
-import com.detrivos.auto.projectile.Bullet;
-import com.detrivos.auto.projectile.Projectile;
-import com.detrivos.auto.projectile.Rocket;
+import com.detrivos.auto.graphics.*;
+import com.detrivos.auto.projectile.*;
 
-public class Turret extends Mob {
+public class Turret extends Entity {
 
 	private int rot = 0;
 	private int posneg = 1;
@@ -100,7 +94,7 @@ public class Turret extends Mob {
 					level.add(new BulletDrops(this.x, this.y, BType.ROCKET, 2));
 					if (Game.onchal && random.nextInt(2) == 0) level.add(new Medkit((int) this.x / 16, (int) this.y / 16, Tier.HIGH)); 
 				}
-				if (Game.onchal) Player.kills++;
+				if (Game.onchal) Game.getInstance().getPlayer().incrementKills();
 				bulletDropped = true;
 			}
 		}

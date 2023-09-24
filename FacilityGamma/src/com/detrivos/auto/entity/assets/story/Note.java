@@ -1,10 +1,10 @@
 package com.detrivos.auto.entity.assets.story;
 
-import com.detrivos.auto.entity.Mob;
+import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.graphics.Screen;
 import com.detrivos.auto.graphics.Sprite;
 
-public class Note extends Mob {
+public class Note extends Entity {
 	
 	public enum Type {
 		CONTROLS, CRYO

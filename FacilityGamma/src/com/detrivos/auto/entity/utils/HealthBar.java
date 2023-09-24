@@ -1,19 +1,18 @@
 package com.detrivos.auto.entity.utils;
 
 import com.detrivos.auto.entity.Entity;
-import com.detrivos.auto.entity.Mob;
 import com.detrivos.auto.graphics.Screen;
 
 public class HealthBar extends Entity {
 	
-	private Mob m;
+	private Entity m;
 	private int oWidth = 18;
 	private double health;
 	public final int HEIGHT = 1;
 	public int width = oWidth;
 	public int col = 0xFF00FF00;	
 
-	public HealthBar(Mob m, int oX, int oY) {
+	public HealthBar(Entity m, int oX, int oY) {
 		this.x = (oX - 1);
 		this.y = (oY - 2);
 		this.m = m;

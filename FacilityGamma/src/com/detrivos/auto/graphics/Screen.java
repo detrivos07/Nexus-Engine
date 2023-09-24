@@ -5,7 +5,7 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 
-import com.detrivos.auto.entity.Mob;
+import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.entity.assets.Turret;
 import com.detrivos.auto.entity.utils.BulletBar;
 import com.detrivos.auto.entity.utils.HealthBar;
@@ -133,7 +133,7 @@ public class Screen {
 		}
 	}
 
-	public void renderMob(int xp, int yp, Sprite sprite, Mob m) {
+	public void renderMob(int xp, int yp, Sprite sprite, Entity m) {
 		xp -= xOffset;
 		yp -= yOffset;
 		for (int y = 0; y < sprite.SIZE; y++) {

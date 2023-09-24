@@ -3,7 +3,7 @@ package com.detrivos.auto.projectile;
 import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.graphics.Sprite;
 
-public class Projectile extends Entity {
+public abstract class Projectile extends Entity {
 
 	protected final double xOrigin, yOrigin;
 	protected double angle;
@@ -34,7 +34,7 @@ public class Projectile extends Entity {
 		if (speed != 0) this.speed = speed;
 		if (range != 0) this.range = range;
 		if (damage != 0) this.damage = damage;
-		if (fireRate != 0) this.fireRate = fireRate;
+		if (fireRate != 0) Projectile.fireRate = fireRate;
 	}
 	
 	protected void move() {

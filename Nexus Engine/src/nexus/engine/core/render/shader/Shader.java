@@ -11,8 +11,6 @@ import java.util.Map;
 import org.joml.*;
 import org.lwjgl.system.MemoryStack;
 
-import com.google.common.flogger.StackSize;
-
 import nexus.engine.core.render.opengl.Material;
 import nexus.engine.core.render.shader.d3.lighting.*;
 import nexus.engine.core.render.shader.d3.weather.Fog;

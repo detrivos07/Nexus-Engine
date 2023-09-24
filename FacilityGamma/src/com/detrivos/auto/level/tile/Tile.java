@@ -2,7 +2,6 @@ package com.detrivos.auto.level.tile;
 
 import com.detrivos.auto.graphics.Screen;
 import com.detrivos.auto.graphics.Sprite;
-import com.detrivos.auto.graphics.SpriteSheet;
 
 public class Tile {
 

@@ -2,13 +2,13 @@ package com.detrivos.auto.entity.assets.story;
 
 import java.util.List;
 
-import com.detrivos.auto.entity.Mob;
+import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.entity.assets.Player;
 import com.detrivos.auto.graphics.Screen;
 import com.detrivos.auto.graphics.Sprite;
 import com.detrivos.auto.ui.StoryUI;
 
-public class ShotgunNPC extends Mob {
+public class ShotgunNPC extends Entity {
 	
 	public boolean collided = false;
 	private StoryUI ui = StoryUI.shotgunText;

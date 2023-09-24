@@ -6,18 +6,25 @@ import org.joml.Vector2d;
 import org.joml.Vector2f;
 import org.lwjgl.glfw.*;
 
+import nexus.engine.core.collision.AABB;
+
 public class Mouse {
 	private static Mouse mouse;
 	
 	public static final int BUTTON_1 = GLFW_MOUSE_BUTTON_1,
 							BUTTON_2 = GLFW_MOUSE_BUTTON_2,
-							BUTTON_3 = GLFW_MOUSE_BUTTON_3;
+							BUTTON_3 = GLFW_MOUSE_BUTTON_3,
+							BUTTON_4 = GLFW_MOUSE_BUTTON_4,
+							BUTTON_5 = GLFW_MOUSE_BUTTON_5,
+							BUTTON_6 = GLFW_MOUSE_BUTTON_6,
+							BUTTON_7 = GLFW_MOUSE_BUTTON_7;
 	
 	public static final float MOUSE_SENS = 0.2f;
 	
-	private final Vector2d pos, lastPos, scroll;
+	private final Vector2d pos, screenPos, lastPos, scroll;
 	private final Vector2f displayVec;
 	private boolean inWindow = false;
+	
 	private int[] buttons;
 	
 	private GLFWMouseButtonCallback mbc;
@@ -25,14 +32,20 @@ public class Mouse {
 	private GLFWScrollCallback swc;
 	private GLFWCursorEnterCallback cec;
 	
+	private AABB bb;
+	private float bbrad = 1f;
+	
 	private Mouse() {
 		pos = new Vector2d();
+		screenPos = new Vector2d();
 		lastPos = new Vector2d(-1);
 		scroll = new Vector2d();
+		bb = new AABB(AABB.getCenterPosFromTopLeft((float) screenPos.x, (float) screenPos.y, bbrad, bbrad), new Vector2f(bbrad));
+
 		displayVec = new Vector2f();
 		
 		buttons = new int[8];
-		for (int i = 0 ; i < buttons.length; i++) buttons[i] = -1;
+		for (int i = 0 ; i < buttons.length; i++) buttons[i] = 0;
 	}
 	
 	public void init(long window) {
@@ -45,6 +58,7 @@ public class Mouse {
 		cpc = new GLFWCursorPosCallback() {
 			public void invoke(long argWindow, double x, double y) {
 				setPos(x, y);
+				screenPos.set(x, y);
 				displayVec.zero();
 				if (lastPos.x > 0 && lastPos.y > 0 && inWindow) {
 					double dx = y - lastPos.y;
@@ -52,6 +66,8 @@ public class Mouse {
 					if (dx != 0) displayVec.x = (float) dx;
 					if (dy != 0) displayVec.y = (float) dy;
 				}
+				bb.setCenter(AABB.getCenterPosFromTopLeft((float) screenPos.x, (float) screenPos.y, bb.getHalfExtent().x, bb.getHalfExtent().y));
+				lastPos.set(pos);
 			}
 		};
 		
@@ -99,6 +115,10 @@ public class Mouse {
 		return pos;
 	}
 	
+	public Vector2d getScreenPos() {
+		return screenPos;
+	}
+	
 	public Vector2d getLastPos() {
 		return lastPos;
 	}
@@ -111,8 +131,8 @@ public class Mouse {
 		return displayVec;
 	}
 	
-	public int check(int key) {
-		return buttons[key];
+	public boolean check(int key) {
+		return buttons[key] != 0 ? true : false;
 	}
 	
 	public static Mouse getInstance() {

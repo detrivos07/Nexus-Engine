@@ -2,13 +2,13 @@ package com.detrivos.auto.entity.assets;
 
 import java.util.List;
 
-import com.detrivos.auto.entity.Mob;
+import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.graphics.AnimatedSprite;
 import com.detrivos.auto.graphics.Screen;
 import com.detrivos.auto.graphics.Sprite;
 import com.detrivos.auto.graphics.SpriteSheet;
 
-public class Door extends Mob {
+public class Door extends Entity {
 	
 	private boolean unlocked;
 

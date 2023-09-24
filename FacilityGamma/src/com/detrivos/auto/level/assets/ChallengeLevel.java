@@ -8,7 +8,6 @@ import javax.imageio.ImageIO;
 import com.detrivos.auto.entity.spawners.TurretSpawner;
 import com.detrivos.auto.level.Level;
 import com.detrivos.auto.level.LevelIn;
-import com.detrivos.auto.modes.Challenge;
 
 public class ChallengeLevel extends Level {
 

@@ -5,7 +5,6 @@ import nexus.engine.utils.loaders.OBJLoader;
 
 public class Skybox extends GameObject {
 
-	@SuppressWarnings("deprecation")
 	public Skybox(String mesh, String texture) {
 		super();
 		Mesh skyMesh = OBJLoader.loadMesh(mesh);

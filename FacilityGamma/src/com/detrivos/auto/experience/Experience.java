@@ -6,14 +6,10 @@ public class Experience {
 	
 	boolean converted = false;
 	
-	public static int expAmount;
+	public static int expAmount = 0;
 	
 	private static final int[] TURRET_BASE_TABLE = {1, 2, 4};
 	private static int[] turretConvTable = {1, 2, 4};
-
-	public Experience() {
-		this.expAmount = 0;
-	}
 	
 	public static void addExp(Turret.Type t) {
 		switch (t) {

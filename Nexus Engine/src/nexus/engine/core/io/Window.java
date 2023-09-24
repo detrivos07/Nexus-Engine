@@ -40,7 +40,7 @@ public class Window {
 	
 	public void update() {
 		hasResized = false;
-		if (Keyboard.getInstance().check(GLFW_KEY_ESCAPE)) glfwSetWindowShouldClose(window, true);
+		if (Keyboard.getInstance().check(Keyboard.KEY_ESC)) glfwSetWindowShouldClose(window, true);
 		if (glfwWindowShouldClose(window)) Engine.running = false;
 		glfwPollEvents();
 	}

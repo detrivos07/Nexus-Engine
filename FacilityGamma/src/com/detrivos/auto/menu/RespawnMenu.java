@@ -3,7 +3,6 @@ package com.detrivos.auto.menu;
 import java.util.Random;
 
 import com.detrivos.auto.Game;
-import com.detrivos.auto.entity.assets.Player;
 import com.detrivos.auto.graphics.Screen;
 import com.detrivos.auto.input.Keyboard;
 
@@ -79,8 +78,8 @@ public class RespawnMenu extends Menu {
 		screen.renderText(message, (Game.absWidth / 2) + 2, (Game.absHeight / 2) - 186 + 2, 49, 2, 0xFF000000);
 		screen.renderText(message, (Game.absWidth / 2), (Game.absHeight / 2) - 186, 49, 2, 0xFFFFFFFF);
 		
-		screen.renderText("Kills: " + Player.kills, (Game.absWidth / 2) + 1, 481 + 1, 28, 0, 0xFF000000);
-		screen.renderText("Kills: " + Player.kills, (Game.absWidth / 2), 481, 28, 0, 0xFFFFFFFF);
+		screen.renderText("Kills: " + Game.getInstance().getPlayer().getKillAmt(), (Game.absWidth / 2) + 1, 481 + 1, 28, 0, 0xFF000000);
+		screen.renderText("Kills: " + Game.getInstance().getPlayer().getKillAmt(), (Game.absWidth / 2), 481, 28, 0, 0xFFFFFFFF);
 		for (int i = 0; i < options.length; i++) {
 			if (i == 0) {
 				screen.renderText(options[i], (Game.absWidth / 3) + 1, 517 + 1, 28, 0, 0xFF000000);
