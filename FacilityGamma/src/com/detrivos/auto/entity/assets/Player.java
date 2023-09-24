@@ -713,9 +713,9 @@ public class Player extends Entity {
 			machineBullets--;
 		}
 		if (w == Weapon.SCATTER && scatter) {
-			Projectile b = new Bullet(x, y, dir - Math.toRadians(20), this);
+			Projectile b = new Bullet(x, y, dir - Math.toRadians(5), this);
 			p = new Bullet(x, y, dir, this);
-			Projectile a = new Bullet(x, y, dir + Math.toRadians(20), this);
+			Projectile a = new Bullet(x, y, dir + Math.toRadians(5), this);
 			level.add(a);
 			level.add(b);
 			scatterBullets -= 3;
