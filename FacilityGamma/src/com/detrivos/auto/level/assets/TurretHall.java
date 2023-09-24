@@ -5,7 +5,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import com.detrivos.auto.entity.assets.Leecher;
 import com.detrivos.auto.entity.assets.Turret;
 import com.detrivos.auto.entity.assets.Turret.Type;
 import com.detrivos.auto.entity.assets.drops.Medkit;

@@ -2,10 +2,9 @@ package nexus.gamma;
 
 import nexus.engine.Engine;
 import nexus.engine.IProgram;
-import nexus.engine.core.io.*;
-import nexus.engine.core.render.Scene3dRenderer;
+import nexus.engine.core.io.Keyboard;
+import nexus.engine.core.io.Mouse;
 import nexus.engine.core.render.opengl.TextureManager;
-import nexus.engine.scene.Scene;
 
 public class FacilityGamma implements IProgram {
 	

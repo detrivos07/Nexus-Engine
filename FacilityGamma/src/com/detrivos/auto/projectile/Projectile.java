@@ -34,7 +34,7 @@ public abstract class Projectile extends Entity {
 		if (speed != 0) this.speed = speed;
 		if (range != 0) this.range = range;
 		if (damage != 0) this.damage = damage;
-		if (fireRate != 0) this.fireRate = fireRate;
+		if (fireRate != 0) Projectile.fireRate = fireRate;
 	}
 	
 	protected void move() {

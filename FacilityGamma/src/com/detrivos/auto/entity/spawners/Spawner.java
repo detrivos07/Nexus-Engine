@@ -9,7 +9,6 @@ public abstract class Spawner extends Entity {
 		MOB
 	}
 	
-	@SuppressWarnings("unused")
 	private Type t;
 	private int sign;
 	

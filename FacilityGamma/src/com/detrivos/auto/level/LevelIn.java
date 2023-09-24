@@ -5,10 +5,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import com.detrivos.auto.entity.assets.Landmine;
-import com.detrivos.auto.entity.assets.Turret;
-import com.detrivos.auto.entity.spawners.LeecherSpawner;
-
 public class LevelIn extends Level {
 
 	public LevelIn(String path) {

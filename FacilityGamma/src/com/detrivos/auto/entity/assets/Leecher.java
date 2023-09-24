@@ -3,7 +3,6 @@ package com.detrivos.auto.entity.assets;
 import java.util.List;
 
 import com.detrivos.auto.entity.Entity;
-import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.entity.utils.HealthBar;
 import com.detrivos.auto.graphics.Screen;
 import com.detrivos.auto.graphics.Sprite;

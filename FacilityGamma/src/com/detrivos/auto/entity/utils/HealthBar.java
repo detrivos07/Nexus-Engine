@@ -1,7 +1,6 @@
 package com.detrivos.auto.entity.utils;
 
 import com.detrivos.auto.entity.Entity;
-import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.graphics.Screen;
 
 public class HealthBar extends Entity {

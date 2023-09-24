@@ -2,8 +2,6 @@ package artifice.engine.gui.ui;
 
 import static org.lwjgl.nanovg.NanoVG.*;
 
-import java.awt.Cursor;
-
 import org.joml.Vector2d;
 import org.lwjgl.nanovg.NVGColor;
 

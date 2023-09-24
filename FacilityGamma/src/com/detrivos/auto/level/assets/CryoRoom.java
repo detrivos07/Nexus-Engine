@@ -7,7 +7,6 @@ import javax.imageio.ImageIO;
 
 import com.detrivos.auto.entity.assets.CryoPod;
 import com.detrivos.auto.entity.assets.Door;
-import com.detrivos.auto.entity.assets.Leecher;
 import com.detrivos.auto.entity.assets.drops.BulletDrops;
 import com.detrivos.auto.entity.assets.drops.BulletDrops.BType;
 import com.detrivos.auto.entity.assets.story.Note;

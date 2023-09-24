@@ -5,23 +5,19 @@ import java.util.List;
 import com.detrivos.auto.Game;
 import com.detrivos.auto.audio.SoundClip;
 import com.detrivos.auto.entity.Entity;
-import com.detrivos.auto.entity.Entity;
 import com.detrivos.auto.entity.assets.drops.BulletDrops;
 import com.detrivos.auto.entity.assets.drops.BulletDrops.BType;
 import com.detrivos.auto.entity.assets.drops.Medkit;
 import com.detrivos.auto.entity.assets.story.Note;
 import com.detrivos.auto.entity.assets.story.Note.Type;
 import com.detrivos.auto.experience.Experience;
-import com.detrivos.auto.graphics.AnimatedSprite;
-import com.detrivos.auto.graphics.Screen;
-import com.detrivos.auto.graphics.Sprite;
-import com.detrivos.auto.graphics.SpriteSheet;
+import com.detrivos.auto.graphics.*;
 import com.detrivos.auto.input.Keyboard;
 import com.detrivos.auto.input.Mouse;
-import com.detrivos.auto.level.tile.*;
-import com.detrivos.auto.projectile.Bullet;
-import com.detrivos.auto.projectile.Projectile;
-import com.detrivos.auto.projectile.Rocket;
+import com.detrivos.auto.level.tile.LockerTile;
+import com.detrivos.auto.level.tile.Tile;
+import com.detrivos.auto.modes.Challenge;
+import com.detrivos.auto.projectile.*;
 import com.detrivos.auto.ui.StoryUI;
 
 public class Player extends Entity {
@@ -326,7 +322,7 @@ public class Player extends Entity {
 		if (this.health <= 0) {
 			health = 0;
 			dead = true;
-			if (Game.onchal) exp.resetChalTables();
+			if (Game.onchal) Experience.resetChalTables();
 		} else {
 			dead = false;
 		}
@@ -453,7 +449,7 @@ public class Player extends Entity {
 	}
 
 	private void handleExperience() {
-		if (Game.onchal) exp.convertChalTables(Game.chal.dif);
+		if (Game.onchal) exp.convertChalTables(Challenge.dif);
 		
 		input.toggleKey(input.exp, Game.onExpMenu);
 	}
@@ -718,7 +714,7 @@ public class Player extends Entity {
 			Projectile a = new Bullet(x, y, dir + Math.toRadians(5), this);
 			level.add(a);
 			level.add(b);
-			scatterBullets -= 3;
+			scatterBullets -= 1;
 		}
 		if (w == Weapon.ROCKET && rocket) {
 			p = new Rocket(x, y, dir, this);

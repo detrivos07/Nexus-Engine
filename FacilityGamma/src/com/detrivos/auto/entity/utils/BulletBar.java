@@ -57,7 +57,7 @@ public class BulletBar {
 	
 	private void changeSB() {
 		int h1 = height;
-		this.height = (int) (p.scatterBullets * 21) / 500;
+		this.height = (int) (Player.scatterBullets * 21) / 500;
 		int h2 = height;
 		if (h2 - h1 != 0) this.y -= h2 - h1;
 	}

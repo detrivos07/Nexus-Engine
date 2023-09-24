@@ -1,7 +1,6 @@
 package com.detrivos.auto.level.tile;
 
 import com.detrivos.auto.entity.assets.Player;
-import com.detrivos.auto.graphics.Screen;
 import com.detrivos.auto.graphics.Sprite;
 
 public class ChangeTile extends Tile {

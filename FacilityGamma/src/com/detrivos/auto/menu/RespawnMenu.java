@@ -3,7 +3,6 @@ package com.detrivos.auto.menu;
 import java.util.Random;
 
 import com.detrivos.auto.Game;
-import com.detrivos.auto.entity.assets.Player;
 import com.detrivos.auto.graphics.Screen;
 import com.detrivos.auto.input.Keyboard;
 

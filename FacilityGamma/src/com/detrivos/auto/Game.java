@@ -392,7 +392,6 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	/** Resets the player after respawning */
-	@SuppressWarnings("static-access")
 	private void resetPlayer(boolean story) {
 		if (!story) {
 			chal = new Challenge();
@@ -439,9 +438,8 @@ public class Game extends Canvas implements Runnable {
 		menu = null;
 	}
 
-	@SuppressWarnings({ "unused", "static-access" })
 	private void mousePos() {
-		if (m.getX() > (144 * 3) && m.getX() < (256 * 3) && m.getY() > 99 * 3 && m.getY() <= 165 * 3) {
+		if (Mouse.getX() > (144 * 3) && Mouse.getX() < (256 * 3) && Mouse.getY() > 99 * 3 && Mouse.getY() <= 165 * 3) {
 			onMenuSelect = true;
 		} else {
 			onMenuSelect = false;
@@ -509,7 +507,6 @@ public class Game extends Canvas implements Runnable {
 			Game.ui = ui;
 	}
 
-	@SuppressWarnings("static-access")
 	private void render() {
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
@@ -586,7 +583,7 @@ public class Game extends Canvas implements Runnable {
 			g.setFont(new Font("Terminal", 1, 30));
 			g.drawString("" + player.getKillAmt(), 20, 40);
 			g.setColor(Color.GREEN);
-			g.drawString("" + player.exp.expAmount, 20, 80);
+			g.drawString("" + Experience.expAmount, 20, 80);
 		}
 
 		if (!onMainMenu && !hideGUI) {
@@ -594,11 +591,11 @@ public class Game extends Canvas implements Runnable {
 			g.setFont(bulFont);
 			fm = g.getFontMetrics(bulFont);
 			int sw = fm.stringWidth("" + player.getPistolBullets());
-			int sws = fm.stringWidth("" + player.scatterBullets);
+			int sws = fm.stringWidth("" + Player.scatterBullets);
 			int swm = fm.stringWidth("" + player.machineBullets);
 			int swr = fm.stringWidth("" + player.rockets);
 			g.drawString("" + player.getPistolBullets(), 95 - (sw / 2), (absHeight - (25 * 3)) - 198);
-			g.drawString("" + player.scatterBullets, 95 - (sws / 2), (absHeight - (25 * 3)) - 102);
+			g.drawString("" + Player.scatterBullets, 95 - (sws / 2), (absHeight - (25 * 3)) - 102);
 			g.drawString("" + player.machineBullets, 95 - (swm / 2), (absHeight - (25 * 3)) - 6);
 			g.drawString("" + player.rockets, 200 - (swr / 2), (absHeight - (25 * 3)) - 102);
 		}

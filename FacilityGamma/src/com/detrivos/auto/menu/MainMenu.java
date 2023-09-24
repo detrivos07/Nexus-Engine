@@ -4,7 +4,6 @@ import com.detrivos.auto.Game;
 import com.detrivos.auto.graphics.Screen;
 import com.detrivos.auto.input.Keyboard;
 import com.detrivos.auto.input.Mouse;
-import com.detrivos.auto.ui.UI;
 
 public class MainMenu extends Menu {
 

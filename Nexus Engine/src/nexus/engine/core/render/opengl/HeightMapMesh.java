@@ -24,7 +24,6 @@ public class HeightMapMesh {
 	
 	private final float[][] hArr;
 	
-	@SuppressWarnings("deprecation")
 	public HeightMapMesh(float miny, float maxy, String heightMapPath, String texturePath, int texInc) {
 		this.minY = miny;
 		this.maxY = maxy;
