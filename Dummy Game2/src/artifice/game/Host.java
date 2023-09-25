@@ -36,7 +36,7 @@ public class Host implements IProgram {
 		renderer = new Renderer();
 		renderer.init(display.getWindow());
 		
-		level = new DummyLevel(AssetLoader.loadAtlas("res/MapSet1"), "res/levels/test", 32);
+		//level = new DummyLevel(AssetLoader.loadAtlas("res/MapSet1"), "res/levels/test", 32);
 		if (level != null) inLevel = true;
 		
 		sm = SoundManager.getInstance();
@@ -57,11 +57,12 @@ public class Host implements IProgram {
 		
 		//sm.playSource("song");
 		
-		//menu = new MainMenu(window);
+		menu = new MainMenu(display.getWindow());
 	}
 	
 	@Override
 	public void input() {//Updates as fast as renderer
+		menu.input();
 	}
 	
 	@Override
