@@ -13,7 +13,6 @@ public class Window {
 	private String title = "";
 	private String ctx = "";
 	private boolean fullscreen = false;
-	private boolean hasResized = false;
 	
 	private long window;
 	private WindowContext context;
@@ -39,11 +38,8 @@ public class Window {
 	}
 	
 	public void update() {
-		hasResized = false;
-		if (Keyboard.getInstance().check(Keyboard.KEY_ESC)) {
-			glfwSetWindowShouldClose(window, true);
-			Engine.running = false;
-		}
+		if (Keyboard.getInstance().check(Keyboard.KEY_ESC)) glfwSetWindowShouldClose(window, true);
+		if (glfwWindowShouldClose(window)) Engine.running = false;
 		glfwPollEvents();
 	}
 	
@@ -59,19 +55,11 @@ public class Window {
 	}
 	
 	//SETTERS *******************************************************************
-	public void setHasResized(boolean hasResized) {
-		this.hasResized = hasResized;
-	}
-	
 	public void setContext(WindowContext context) {
 		this.context = context;
 	}
 	
 	//GETTERS ********************************************************************
-	public boolean isHasResized() {
-		return hasResized;
-	}
-	
 	public WindowContext getContext() {
 		return context;
 	}
@@ -107,7 +95,6 @@ public class Window {
 				width = argWidth;
 				height = argHeight;
 				context.updateViewport(argWidth, argHeight);
-				hasResized = true;
 				System.out.println("Window resized. W: " + argWidth + " H: " + argHeight);
 			}
 		};

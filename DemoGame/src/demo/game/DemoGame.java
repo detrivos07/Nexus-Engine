@@ -44,17 +44,15 @@ public class DemoGame implements IProgram {
 		board = Keyboard.getInstance();
 		mouse = Mouse.getInstance();
 		display = DisplayManager.getInstance();
+		camera = Camera.getInstance();
 		
 		texManager = new TextureManager();
 		texManager.initFromFile("/textures/");
-		
-		camera = new Camera();
 		
 		scene.init();
 		
 		renderer = new Scene3dRenderer(display, scene, camera);
 		renderer.init();
-		
 		
 		Mesh mesh = OBJLoader.loadMesh("/models/plane.obj");
 		Material mat = new Material(texManager.getTextureFromID(texManager.textures(), 0).load());

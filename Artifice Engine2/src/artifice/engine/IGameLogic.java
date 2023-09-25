@@ -1,11 +1,9 @@
 package artifice.engine;
 
-import artifice.engine.io.*;
-
 public interface IGameLogic {
 	void init();
-	void input(Camera camera);
+	void input();
 	void update();
-	void render(Camera camera);
+	void render();
 	void destroy();
 }

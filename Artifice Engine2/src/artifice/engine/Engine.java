@@ -1,17 +1,17 @@
 package artifice.engine;
 
-import static org.lwjgl.opengl.GL11.glViewport;
-
 import artifice.engine.io.Camera;
 import artifice.engine.io.Window;
+import nexus.engine.IProgram;
 import nexus.engine.core.io.Keyboard;
 import nexus.engine.core.io.Mouse;
 
 public class Engine implements Runnable {
+	private static Engine nexus;
 	public static boolean running = false;
 	
-	private IGameLogic GAME;
-	private String title;
+	private IProgram GAME;
+	private Thread main;
 	
 	private Window window;
 	private Camera camera;
@@ -19,53 +19,42 @@ public class Engine implements Runnable {
 	@Override
 	public void run() {
 		running = true;
-		init();
 		loop();
 		destroy();
 	}
 	
-	public Engine(IGameLogic game, String title) {
-		GAME = game;
-		this.title = title;
+	public Engine() {
+		window = Window.getInstance();
 	}
 	
-	void init() {
-		window = Window.getInstance();
+	public void init(IProgram program) {
+		this.GAME = program;
+		camera = Camera.getInstance();
 		Keyboard.getInstance().init(window.getWindow());
 		Mouse.getInstance().init(window.getWindow());
-		
-		camera = new Camera(window.getWidth(), window.getHeight());
-		
 		GAME.init();
+		
+		main = new Thread(nexus, "Nexus");
+		main.run();
 	}
 	
 	void input() {
 		window.update();
-		
-		GAME.input(camera);
+		GAME.input();
 	}
 	
 	void update() {
-		checkWindowSize();
 		GAME.update();
 	}
 	
 	void render() {
-		GAME.render(camera);
+		GAME.render();
 		window.postRender();
 	}
 	
 	void destroy() {
 		GAME.destroy();
 		window.destroy();
-	}
-	
-	void checkWindowSize() {
-		if (window.hasResized()) {
-			camera.setProjection(window.getWidth(), window.getHeight());
-			
-			glViewport(0, 0, window.getWidth(), window.getHeight());
-		}
 	}
 	
 	void loop() {
@@ -75,7 +64,6 @@ public class Engine implements Runnable {
 		double delta = 0.0;
 		int fps = 0;
 		int tps = 0;
-		checkWindowSize();
 		while (running) {
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;
@@ -96,5 +84,10 @@ public class Engine implements Runnable {
 				tps = 0;
 			}
 		}
+	}
+	
+	public static Engine getInstance() {
+		if (nexus == null) nexus = new Engine();
+		return nexus;
 	}
 }

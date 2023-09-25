@@ -15,7 +15,6 @@ public class Window {
 	private String title;
 	
 	private boolean fullscreen;
-	private boolean hasResized = false;
 	
 	private long window;
 	private GLFWWindowSizeCallback wsc;
@@ -36,7 +35,6 @@ public class Window {
 	}
 	
 	public void update() {
-		hasResized = false;
 		if (glfwWindowShouldClose(window)) Engine.running = false;
 		glfwPollEvents();
 	}
@@ -75,7 +73,8 @@ public class Window {
 			public void invoke(long argWindow, int argWidth, int argHeight) {
 				width = argWidth;
 				height = argHeight;
-				hasResized = true;
+				Camera.getInstance().setProjection(width, height);
+				glViewport(0, 0, width, height);
 			}
 		};
 		
@@ -122,10 +121,6 @@ public class Window {
 	
 	public long getWindow() {
 		return window;
-	}
-	
-	public boolean hasResized() {
-		return hasResized;
 	}
 	
 	public static Window getInstance() {

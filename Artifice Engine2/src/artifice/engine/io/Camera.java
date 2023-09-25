@@ -5,13 +5,14 @@ import org.joml.*;
 import artifice.engine.level.Level;
 
 public class Camera {
+	private static Camera camera;
 	
 	private Vector3f pos;
 	private Matrix4f projMat;
 	
-	public Camera(int width, int height) {
+	public Camera() {
 		pos = new Vector3f(0, 0, 0);
-		setProjection(width, height);
+		setProjection(Window.getInstance().getWidth(), Window.getInstance().getHeight());
 	}
 	
 	public void setProjection(int width, int height) {
@@ -53,5 +54,10 @@ public class Camera {
 		if (pos.x < w + (windowWidth / 2) + level.getScale()) pos.x = w + (windowWidth / 2) + level.getScale();
 		if (pos.y < (windowHeight / 2) - level.getScale()) pos.y = (windowHeight / 2) - level.getScale();
 		if (pos.y > h - (windowHeight / 2) - level.getScale()) pos.y = h - (windowHeight / 2) - level.getScale();
+	}
+	
+	public static Camera getInstance() {
+		if (camera == null) camera = new Camera();
+		return camera;
 	}
 }

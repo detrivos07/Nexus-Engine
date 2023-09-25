@@ -1,22 +1,22 @@
 package artifice.game;
 
-import artifice.engine.*;
+import artifice.engine.AssetLoader;
+import artifice.engine.Engine;
 import artifice.engine.io.Camera;
 import artifice.engine.io.Window;
+import nexus.engine.IProgram;
 import nexus.engine.core.io.Mouse;
 import nexus.engine.sound.*;
 
-public class Host implements IGameLogic {
+public class Host implements IProgram {
 	
 	public static void main(String[] args) {
-		IGameLogic game = new Host();
-		Engine artifice = new Engine(game, "Host");
-		Thread thread = new Thread(artifice, "ArtificeEngine");
-		thread.start();
+		Engine.getInstance().init(new Host());
 	}
 	
 	private Window window;
 	private Renderer renderer;
+	private Camera camera;
 	
 	private DummyLevel level;
 	
@@ -30,6 +30,7 @@ public class Host implements IGameLogic {
 	@Override
 	public void init() {
 		window = Window.getInstance();
+		camera = Camera.getInstance();
 		renderer = new Renderer();
 		renderer.init(window);
 		mouse = Mouse.getInstance();
@@ -59,7 +60,7 @@ public class Host implements IGameLogic {
 	}
 	
 	@Override
-	public void input(Camera camera) {
+	public void input() {
 		if (inLevel) {
 			level.calculateView(window);
 			level.input(window, camera, mouse, sm);
@@ -78,7 +79,7 @@ public class Host implements IGameLogic {
 	}
 	
 	@Override
-	public void render(Camera camera) {
+	public void render() {
 		if (inLevel) {
 			camera.correctCamera(window, level);
 			renderer.render(window, camera, level);

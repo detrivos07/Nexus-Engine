@@ -4,7 +4,6 @@ import nexus.engine.core.io.*;
 
 public class Engine implements Runnable {
 	private static Engine nexus;
-	
 	public static boolean running = false;
 	
 	private IProgram PROGRAM;
@@ -20,7 +19,7 @@ public class Engine implements Runnable {
 	}
 	
 	private Engine() {
-		this.display = DisplayManager.getInstance();
+		display = DisplayManager.getInstance();
 	}
 	
 	/**
@@ -38,41 +37,31 @@ public class Engine implements Runnable {
 		main.run();
 	}
 	
-	/**
-	 * Updates all input devices
-	 */
-	public void input() {
+	/*** Updates all input devices*/
+	void input() {
 		display.update();
 		PROGRAM.input();
 	}
 	
-	/**
-	 * Updates all engine devices
-	 */
+	/*** Updates all engine devices*/
 	void update() {
 		PROGRAM.update();
 	}
 	
-	/**
-	 * Clears viewport renderer, renders current scene, buffer swapper
-	 */
+	/*** Clears viewport renderer, renders current scene, buffer swapper*/
 	void render() {
 		display.preRender();
 		PROGRAM.render();
 		display.postRender();
 	}
 	
-	/**
-	 * Destroys all engine objects
-	 */
+	/*** Destroys all engine objects*/
 	void destroy() {
 		PROGRAM.destroy();
 		display.destroy();
 	}
 	
-	/**
-	 * primary program loop
-	 */
+	/*** primary program loop*/
 	void loop() {
 		long last = System.nanoTime();
 		long curr = System.currentTimeMillis();

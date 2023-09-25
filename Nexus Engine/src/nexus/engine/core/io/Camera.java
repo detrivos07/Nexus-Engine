@@ -53,5 +53,8 @@ public class Camera {
 		return rot;
 	}
 	
-	
+	public static Camera getInstance() {
+		if (camera == null) camera = new Camera();
+		return camera;
+	}
 }
