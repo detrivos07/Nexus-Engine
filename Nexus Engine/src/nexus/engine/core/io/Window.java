@@ -40,8 +40,10 @@ public class Window {
 	
 	public void update() {
 		hasResized = false;
-		if (Keyboard.getInstance().check(Keyboard.KEY_ESC)) glfwSetWindowShouldClose(window, true);
-		if (glfwWindowShouldClose(window)) Engine.running = false;
+		if (Keyboard.getInstance().check(Keyboard.KEY_ESC)) {
+			glfwSetWindowShouldClose(window, true);
+			Engine.running = false;
+		}
 		glfwPollEvents();
 	}
 	

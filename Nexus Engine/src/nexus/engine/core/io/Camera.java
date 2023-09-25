@@ -3,6 +3,8 @@ package nexus.engine.core.io;
 import org.joml.Vector3f;
 
 public class Camera {
+	private static Camera camera;
+	
 	private final Vector3f pos, rot;
 
 	public Camera() {
@@ -50,4 +52,6 @@ public class Camera {
 	public Vector3f getRot() {
 		return rot;
 	}
+	
+	
 }

@@ -9,15 +9,15 @@ import org.lwjgl.opengl.GL;
 import artifice.engine.Engine;
 
 public class Window {
-	
-	private long window;
+	private static Window display;
 	
 	private int width, height;
 	private String title;
-	private boolean fullscreen;
 	
+	private boolean fullscreen;
 	private boolean hasResized = false;
 	
+	private long window;
 	private GLFWWindowSizeCallback wsc;
 	
 	public Window(int width, int height, String title) {
@@ -39,12 +39,6 @@ public class Window {
 		hasResized = false;
 		if (glfwWindowShouldClose(window)) Engine.running = false;
 		glfwPollEvents();
-	}
-	
-	public void restore() {
-		glEnable(GL_BLEND);
-		glEnable(GL_STENCIL_TEST);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	}
 	
 	public void postRender() {
@@ -132,5 +126,10 @@ public class Window {
 	
 	public boolean hasResized() {
 		return hasResized;
+	}
+	
+	public static Window getInstance() {
+		if (display == null) display = new Window(1600, 900, "Host");
+		return display;
 	}
 }

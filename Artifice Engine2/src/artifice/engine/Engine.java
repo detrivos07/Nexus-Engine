@@ -2,9 +2,8 @@ package artifice.engine;
 
 import static org.lwjgl.opengl.GL11.glViewport;
 
-import java.io.File;
-
-import artifice.engine.io.*;
+import artifice.engine.io.Camera;
+import artifice.engine.io.Window;
 import nexus.engine.core.io.Keyboard;
 import nexus.engine.core.io.Mouse;
 
@@ -20,7 +19,6 @@ public class Engine implements Runnable {
 	@Override
 	public void run() {
 		running = true;
-		System.getProperty("org.lwjgl.librarypath", new File("lib/natives/win64").getAbsolutePath());
 		init();
 		loop();
 		destroy();
@@ -32,28 +30,28 @@ public class Engine implements Runnable {
 	}
 	
 	void init() {
-		window = new Window(1600, 900, title);
+		window = Window.getInstance();
 		Keyboard.getInstance().init(window.getWindow());
 		Mouse.getInstance().init(window.getWindow());
 		
 		camera = new Camera(window.getWidth(), window.getHeight());
 		
-		GAME.init(window);
+		GAME.init();
 	}
 	
 	void input() {
 		window.update();
 		
-		GAME.input(window, camera);
+		GAME.input(camera);
 	}
 	
 	void update() {
 		checkWindowSize();
-		GAME.update(window);
+		GAME.update();
 	}
 	
 	void render() {
-		GAME.render(window, camera);
+		GAME.render(camera);
 		window.postRender();
 	}
 	

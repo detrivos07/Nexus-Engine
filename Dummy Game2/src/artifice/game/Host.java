@@ -15,6 +15,7 @@ public class Host implements IGameLogic {
 		thread.start();
 	}
 	
+	private Window window;
 	private Renderer renderer;
 	
 	private DummyLevel level;
@@ -27,7 +28,8 @@ public class Host implements IGameLogic {
 	private boolean inLevel = false;
 	
 	@Override
-	public void init(Window window) {
+	public void init() {
+		window = Window.getInstance();
 		renderer = new Renderer();
 		renderer.init(window);
 		mouse = Mouse.getInstance();
@@ -57,7 +59,7 @@ public class Host implements IGameLogic {
 	}
 	
 	@Override
-	public void input(Window window, Camera camera) {
+	public void input(Camera camera) {
 		if (inLevel) {
 			level.calculateView(window);
 			level.input(window, camera, mouse, sm);
@@ -70,13 +72,13 @@ public class Host implements IGameLogic {
 	}
 	
 	@Override
-	public void update(Window window) {
+	public void update() {
 		if (inLevel) level.update();
 		else menu.update();
 	}
 	
 	@Override
-	public void render(Window window, Camera camera) {
+	public void render(Camera camera) {
 		if (inLevel) {
 			camera.correctCamera(window, level);
 			renderer.render(window, camera, level);

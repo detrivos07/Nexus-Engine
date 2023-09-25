@@ -2,6 +2,7 @@ package artifice.engine.gui;
 
 import static org.lwjgl.nanovg.NanoVG.*;
 import static org.lwjgl.nanovg.NanoVGGL3.*;
+import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 import java.nio.ByteBuffer;
@@ -49,7 +50,7 @@ public class GUI {
 		for (GUIComponent component : comps) if (component != null) component.render(window);
 		
 		nvgEndFrame(vg);
-        window.restore();
+        restoreWindow();
 	}
 	
 	public void destroy() {
@@ -60,6 +61,12 @@ public class GUI {
 	public void addComponent(GUIComponent component, int priority) {
 		if (comps[priority] != null) addComponent(component, priority+1);
 		else comps[priority] = component;
+	}
+	
+	public static void restoreWindow() {
+		glEnable(GL_BLEND);
+		glEnable(GL_STENCIL_TEST);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	}
 	
 	//GETTERS
