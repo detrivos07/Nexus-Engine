@@ -9,9 +9,8 @@ import org.lwjgl.nanovg.NVGColor;
 import org.lwjgl.nanovg.NVGPaint;
 
 import artifice.engine.gui.ui.TextComponent;
-import artifice.engine.io.Window;
 import artifice.engine.render.texture.Texture;
-import nexus.engine.core.io.Mouse;
+import nexus.engine.core.io.*;
 
 public class ButtonComponent extends GUIComponent {
 	

@@ -4,8 +4,7 @@ import static org.lwjgl.nanovg.NanoVG.*;
 
 import org.lwjgl.nanovg.NVGColor;
 
-import artifice.engine.io.Window;
-import nexus.engine.core.io.Mouse;
+import nexus.engine.core.io.*;
 
 public class ColorComponent extends GUIComponent {
 	

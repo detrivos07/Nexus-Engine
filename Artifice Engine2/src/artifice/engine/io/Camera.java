@@ -3,6 +3,8 @@ package artifice.engine.io;
 import org.joml.*;
 
 import artifice.engine.level.Level;
+import nexus.engine.core.io.DisplayManager;
+import nexus.engine.core.io.Window;
 
 public class Camera {
 	private static Camera camera;
@@ -12,7 +14,7 @@ public class Camera {
 	
 	public Camera() {
 		pos = new Vector3f(0, 0, 0);
-		setProjection(Window.getInstance().getWidth(), Window.getInstance().getHeight());
+		setProjection(DisplayManager.getInstance().getWindow().getWidth(), DisplayManager.getInstance().getWindow().getHeight());
 	}
 	
 	public void setProjection(int width, int height) {

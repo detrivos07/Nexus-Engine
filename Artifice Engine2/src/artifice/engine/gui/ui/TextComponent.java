@@ -5,7 +5,7 @@ import static org.lwjgl.nanovg.NanoVG.*;
 import org.lwjgl.nanovg.NVGColor;
 
 import artifice.engine.gui.*;
-import artifice.engine.io.Window;
+import nexus.engine.core.io.Window;
 
 public class TextComponent {
 	

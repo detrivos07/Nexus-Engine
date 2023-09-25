@@ -1,10 +1,10 @@
 package artifice.game;
 
 import artifice.engine.AssetLoader;
-import artifice.engine.Engine;
 import artifice.engine.io.Camera;
-import artifice.engine.io.Window;
+import nexus.engine.Engine;
 import nexus.engine.IProgram;
+import nexus.engine.core.io.DisplayManager;
 import nexus.engine.core.io.Mouse;
 import nexus.engine.sound.*;
 
@@ -14,7 +14,7 @@ public class Host implements IProgram {
 		Engine.getInstance().init(new Host());
 	}
 	
-	private Window window;
+	private DisplayManager display;
 	private Renderer renderer;
 	private Camera camera;
 	
@@ -29,11 +29,12 @@ public class Host implements IProgram {
 	
 	@Override
 	public void init() {
-		window = Window.getInstance();
+		display = DisplayManager.getInstance();
 		camera = Camera.getInstance();
-		renderer = new Renderer();
-		renderer.init(window);
 		mouse = Mouse.getInstance();
+		
+		renderer = new Renderer();
+		renderer.init(display.getWindow());
 		
 		level = new DummyLevel(AssetLoader.loadAtlas("res/MapSet1"), "res/levels/test", 32);
 		if (level != null) inLevel = true;
@@ -60,20 +61,21 @@ public class Host implements IProgram {
 	}
 	
 	@Override
-	public void input() {
+	public void input() {//Updates as fast as renderer
+	}
+	
+	@Override
+	public void update() {
 		if (inLevel) {
-			level.calculateView(window);
-			level.input(window, camera, mouse, sm);
+			level.calculateView(display.getWindow());
+			level.input(display.getWindow(), camera, mouse, sm);
 		} else {
 			if (menu.start()) {
 				level = new DummyLevel(AssetLoader.loadAtlas("res/MapSet1"), "res/levels/test", 32);
 				inLevel = true;
 			}
 		}
-	}
-	
-	@Override
-	public void update() {
+		
 		if (inLevel) level.update();
 		else menu.update();
 	}
@@ -81,9 +83,9 @@ public class Host implements IProgram {
 	@Override
 	public void render() {
 		if (inLevel) {
-			camera.correctCamera(window, level);
-			renderer.render(window, camera, level);
-		} else menu.render(window);
+			camera.correctCamera(display.getWindow(), level);
+			renderer.render(display.getWindow(), camera, level);
+		} else menu.render(display.getWindow());
 	}
 	
 	@Override

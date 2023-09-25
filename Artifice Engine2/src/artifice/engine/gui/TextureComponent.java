@@ -5,9 +5,8 @@ import static org.lwjgl.nanovg.NanoVGGL3.nvglCreateImageFromHandle;
 
 import org.lwjgl.nanovg.NVGPaint;
 
-import artifice.engine.io.Window;
 import artifice.engine.render.texture.Texture;
-import nexus.engine.core.io.Mouse;
+import nexus.engine.core.io.*;
 
 public class TextureComponent extends GUIComponent {
 

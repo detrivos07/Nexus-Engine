@@ -7,8 +7,8 @@ import org.lwjgl.nanovg.NVGColor;
 
 import artifice.engine.gui.GUI;
 import artifice.engine.gui.GUIComponent;
-import artifice.engine.io.Window;
 import nexus.engine.core.io.Mouse;
+import nexus.engine.core.io.Window;
 
 public class RoundColorComponent extends ColorComponent {
 	

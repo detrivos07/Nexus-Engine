@@ -9,15 +9,24 @@ import nexus.engine.core.io.WindowContext;
 
 public class GLWindowContext implements WindowContext {
 	
+	private boolean cullfaces = false;
+	private boolean depthTest = false;
+	
 	@Override
 	/**
 	 * enables BLEND, DEPTH_TEST by default
 	 */
-	public void createContext() {
+	public void createContext(String context) {
+		initContext(context);
 		GL.createCapabilities();
 		restore();
 		setClearColour(0.0f, 0.0f, 0.1f, 0.0f);
-		cullFaces();
+		if (cullfaces) cullFaces();
+	}
+	
+	void initContext(String context) {
+		if (context.contains("cull")) cullfaces = true;
+		if (context.contains("depth")) depthTest = true;
 	}
 	
 	public void cullFaces() {
@@ -31,7 +40,7 @@ public class GLWindowContext implements WindowContext {
 	
 	public void restore() {
 		enable(GL_BLEND);
-		enable(GL_DEPTH_TEST);
+		if (depthTest) enable(GL_DEPTH_TEST);
 		enable(GL_STENCIL_TEST);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	}

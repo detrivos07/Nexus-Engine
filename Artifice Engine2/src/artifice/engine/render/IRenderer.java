@@ -2,8 +2,9 @@ package artifice.engine.render;
 
 import static org.lwjgl.opengl.GL11.*;
 
-import artifice.engine.io.*;
+import artifice.engine.io.Camera;
 import artifice.engine.level.Level;
+import nexus.engine.core.io.Window;
 
 public interface IRenderer {
 	void init(Window window);

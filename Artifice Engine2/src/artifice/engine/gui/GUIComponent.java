@@ -1,7 +1,6 @@
 package artifice.engine.gui;
 
-import artifice.engine.io.Window;
-import nexus.engine.core.io.Mouse;
+import nexus.engine.core.io.*;
 
 public abstract class GUIComponent {
 	

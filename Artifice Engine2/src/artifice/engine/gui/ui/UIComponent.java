@@ -2,9 +2,7 @@ package artifice.engine.gui.ui;
 
 import artifice.engine.gui.GUI;
 import artifice.engine.gui.GUIComponent;
-import artifice.engine.io.Window;
-import nexus.engine.core.io.Keyboard;
-import nexus.engine.core.io.Mouse;
+import nexus.engine.core.io.*;
 
 public abstract class UIComponent {
 	

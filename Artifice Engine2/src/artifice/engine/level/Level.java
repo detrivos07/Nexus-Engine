@@ -5,13 +5,16 @@ import java.util.Random;
 
 import org.joml.*;
 
-import artifice.engine.io.*;
+import artifice.engine.io.Camera;
 import artifice.engine.level.entity.Entity;
 import artifice.engine.level.entity.Projectile;
-import artifice.engine.level.tile.*;
-import artifice.engine.render.model.*;
+import artifice.engine.level.tile.Tile;
+import artifice.engine.level.tile.TileMap;
+import artifice.engine.render.model.InstMaterial;
+import artifice.engine.render.model.InstMesh;
 import artifice.engine.render.shader.Shader;
 import artifice.engine.render.texture.TextureAtlas;
+import nexus.engine.core.io.Window;
 
 public abstract class Level {
 	protected Random rand = new Random();

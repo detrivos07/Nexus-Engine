@@ -7,7 +7,7 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 
 import java.nio.ByteBuffer;
 
-import artifice.engine.io.Window;
+import nexus.engine.core.io.Window;
 import artifice.engine.utils.LoaderUtils;
 import nexus.engine.core.io.Mouse;
 

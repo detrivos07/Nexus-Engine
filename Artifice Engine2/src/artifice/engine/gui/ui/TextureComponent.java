@@ -7,10 +7,8 @@ import org.lwjgl.nanovg.NVGPaint;
 
 import artifice.engine.gui.GUI;
 import artifice.engine.gui.GUIComponent;
-import artifice.engine.io.Window;
 import artifice.engine.render.texture.Texture;
-import nexus.engine.core.io.Keyboard;
-import nexus.engine.core.io.Mouse;
+import nexus.engine.core.io.*;
 
 public class TextureComponent extends ColorComponent {
 	
