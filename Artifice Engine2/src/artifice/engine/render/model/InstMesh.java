@@ -2,11 +2,13 @@ package artifice.engine.render.model;
 
 import static org.lwjgl.opengl.GL15.*;
 
-import java.nio.*;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
 
 import org.lwjgl.BufferUtils;
 
-import artifice.engine.render.utils.*;
+import nexus.engine.core.render.utils.VAO;
+import nexus.engine.core.render.utils.VBO;
 
 public class InstMesh extends Mesh {
 	public static final int MAX = 10000;// MAX instances to be rendered
@@ -64,7 +66,7 @@ public class InstMesh extends Mesh {
 	@Override
 	public void destroy() {
 		super.destroy();
-		vbo.delete();
+		vbo.destroy();
 	}
 	
 	public VBO getVBO() {

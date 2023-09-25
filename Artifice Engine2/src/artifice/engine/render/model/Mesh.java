@@ -1,12 +1,18 @@
 package artifice.engine.render.model;
 
-import static org.lwjgl.opengl.GL31.*;
+import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL15.*;
+import static org.lwjgl.opengl.GL20.glDisableVertexAttribArray;
+import static org.lwjgl.opengl.GL20.glEnableVertexAttribArray;
+import static org.lwjgl.opengl.GL31.glDrawElementsInstanced;
 
-import java.nio.*;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
 
 import org.lwjgl.BufferUtils;
 
-import artifice.engine.render.utils.*;
+import nexus.engine.core.render.utils.VAO;
+import nexus.engine.core.render.utils.VBO;
 
 public class Mesh {
 	protected float[] verts = new float[] {
@@ -97,8 +103,8 @@ public class Mesh {
 	}
 	
 	public void destroy() {
-		ivbo.delete();
-		mvbo.delete();
+		ivbo.destroy();
+		mvbo.destroy();
 	}
 	
 	public float[] getVerts() {
