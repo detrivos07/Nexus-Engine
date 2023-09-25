@@ -7,9 +7,9 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 
 import java.nio.ByteBuffer;
 
-import nexus.engine.core.io.Window;
-import artifice.engine.utils.LoaderUtils;
 import nexus.engine.core.io.Mouse;
+import nexus.engine.core.io.Window;
+import nexus.engine.core.utils.FileUtils;
 
 public class GUI {
 	
@@ -31,7 +31,7 @@ public class GUI {
 	public void init(Window window) {
 		this.vg = nvgCreate(NVG_STENCIL_STROKES);
 		if (vg == NULL) throw new IllegalStateException("Could not init nanovg graphics");
-		font = LoaderUtils.ioResourceToByteBuffer("/res/sagesans-Regular.ttf", 150 * 1024);
+		font = FileUtils.ioResourceToByteBuffer("/res/sagesans-Regular.ttf", 150 * 1024);
 		int f = nvgCreateFontMem(vg, "FONT", font, 0);
 		if (f == -1) throw new IllegalStateException("Could not generate NVG font");
 	}

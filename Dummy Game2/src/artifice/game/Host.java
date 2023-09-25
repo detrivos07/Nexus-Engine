@@ -62,7 +62,7 @@ public class Host implements IProgram {
 	
 	@Override
 	public void input() {//Updates as fast as renderer
-		menu.input();
+		if (menu != null) menu.input();
 	}
 	
 	@Override

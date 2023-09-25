@@ -9,9 +9,9 @@ import artifice.engine.level.Level;
 import artifice.engine.render.model.Mesh;
 import artifice.engine.render.shader.Shader;
 import artifice.engine.render.texture.Texture;
-import artifice.engine.utils.*;
 import nexus.engine.core.collision.AABB;
 import nexus.engine.core.collision.AABB.Collision;
+import nexus.engine.core.render.utils.Transformation3D;
 
 public abstract class Entity {
 	static int nID = 0;
@@ -79,7 +79,7 @@ public abstract class Entity {
 		target.mul(level.getLevelData());
 		
 		shader.setSampler();
-		shader.setUniform("projMat", Transform.getProjection(target, scale, pos));
+		shader.setUniform("projMat", Transformation3D.getProjection(target, scale, pos));
 		debugTexture.bind(0);
 		mesh.render();
 		shader.unbind();
