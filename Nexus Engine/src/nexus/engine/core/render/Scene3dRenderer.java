@@ -8,8 +8,8 @@ import java.util.*;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
-import nexus.engine.core.io.Camera;
 import nexus.engine.core.io.DisplayManager;
+import nexus.engine.core.io.camera.Camera;
 import nexus.engine.core.render.opengl.*;
 import nexus.engine.core.render.shader.FrustumCullingFilter;
 import nexus.engine.core.render.shader.Shader;

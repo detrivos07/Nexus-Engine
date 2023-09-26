@@ -5,6 +5,8 @@ import org.joml.*;
 import nexus.engine.Engine;
 import nexus.engine.IProgram;
 import nexus.engine.core.io.*;
+import nexus.engine.core.io.camera.Camera;
+import nexus.engine.core.io.camera.Camera3D;
 import nexus.engine.core.render.Scene3dRenderer;
 import nexus.engine.core.render.opengl.*;
 import nexus.engine.scene.*;
@@ -25,7 +27,7 @@ public class DemoGame implements IProgram {
 	private TextureManager texManager;//engine
 	
 	private Scene3dRenderer renderer;//in scene?
-	private Camera camera;//engine
+	private Camera3D camera;//engine
 	private Scene3d scene;
 	
 	private final Vector3f cameraInc;
@@ -44,7 +46,7 @@ public class DemoGame implements IProgram {
 		board = Keyboard.getInstance();
 		mouse = Mouse.getInstance();
 		display = DisplayManager.getInstance();
-		camera = Camera.getInstance();
+		camera = (Camera3D) Camera.getInstance(new Camera3D());
 		
 		texManager = new TextureManager();
 		texManager.initFromFile("/textures/");

@@ -21,6 +21,7 @@ public class Host implements IProgram {
 	private DummyLevel level;
 	
 	private SoundManager sm;
+	
 	private Mouse mouse;
 	
 	MainMenu menu;

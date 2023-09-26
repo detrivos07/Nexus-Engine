@@ -25,10 +25,6 @@ public class Camera {
 		this.pos = pos;
 	}
 	
-	public void addPos(Vector3f pos) {
-		this.pos.add(pos);
-	}
-	
 	public float getCameraLeft(int scale, int width) {
 		return getPos().x - scale * (width / 2);
 	}
