@@ -3,11 +3,11 @@ package artifice.game;
 import org.joml.Vector2i;
 
 import artifice.engine.io.Camera;
-import artifice.engine.io.Window;
 import artifice.engine.level.Level;
 import artifice.engine.level.tile.TileMap;
 import artifice.engine.render.texture.TextureAtlas;
 import nexus.engine.core.io.Mouse;
+import nexus.engine.core.io.Window;
 import nexus.engine.sound.SoundManager;
 
 public class DummyLevel extends Level {

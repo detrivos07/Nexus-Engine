@@ -1,12 +1,12 @@
-package artifice.engine.gui.ui;
+package nexus.engine.core.gui.ui;
 
 import static org.lwjgl.nanovg.NanoVG.*;
 
 import org.joml.Vector2d;
 import org.lwjgl.nanovg.NVGColor;
 
-import artifice.engine.gui.GUI;
-import artifice.engine.gui.GUIComponent;
+import nexus.engine.core.gui.GUI;
+import nexus.engine.core.gui.GUIComponent;
 import nexus.engine.core.io.*;
 
 public class ColorComponent extends UIComponent {

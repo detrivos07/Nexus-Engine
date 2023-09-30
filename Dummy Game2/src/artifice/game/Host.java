@@ -1,25 +1,27 @@
 package artifice.game;
 
-import artifice.engine.*;
+import artifice.engine.AssetLoader;
 import artifice.engine.io.Camera;
-import artifice.engine.io.Window;
+import nexus.engine.Engine;
+import nexus.engine.IProgram;
+import nexus.engine.core.io.DisplayManager;
 import nexus.engine.core.io.Mouse;
 import nexus.engine.sound.*;
 
-public class Host implements IGameLogic {
+public class Host implements IProgram {
 	
 	public static void main(String[] args) {
-		IGameLogic game = new Host();
-		Engine artifice = new Engine(game, "Host");
-		Thread thread = new Thread(artifice, "ArtificeEngine");
-		thread.start();
+		Engine.getInstance().init(new Host());
 	}
 	
+	private DisplayManager display;
 	private Renderer renderer;
+	private Camera camera;
 	
 	private DummyLevel level;
 	
 	private SoundManager sm;
+	
 	private Mouse mouse;
 	
 	MainMenu menu;
@@ -27,12 +29,15 @@ public class Host implements IGameLogic {
 	private boolean inLevel = false;
 	
 	@Override
-	public void init(Window window) {
-		renderer = new Renderer();
-		renderer.init(window);
+	public void init() {
+		display = DisplayManager.getInstance();
+		camera = Camera.getInstance();
 		mouse = Mouse.getInstance();
 		
-		level = new DummyLevel(AssetLoader.loadAtlas("res/MapSet1"), "res/levels/test", 32);
+		renderer = new Renderer();
+		renderer.init(display.getWindow());
+		
+		//level = new DummyLevel(AssetLoader.loadAtlas("res/MapSet1"), "res/levels/test", 32);
 		if (level != null) inLevel = true;
 		
 		sm = SoundManager.getInstance();
@@ -53,34 +58,36 @@ public class Host implements IGameLogic {
 		
 		//sm.playSource("song");
 		
-		//menu = new MainMenu(window);
+		menu = new MainMenu(display.getWindow());
 	}
 	
 	@Override
-	public void input(Window window, Camera camera) {
+	public void input() {//Updates as fast as renderer
+		if (menu != null) menu.input();
+	}
+	
+	@Override
+	public void update() {
 		if (inLevel) {
-			level.calculateView(window);
-			level.input(window, camera, mouse, sm);
+			level.calculateView(display.getWindow());
+			level.input(display.getWindow(), camera, mouse, sm);
 		} else {
 			if (menu.start()) {
 				level = new DummyLevel(AssetLoader.loadAtlas("res/MapSet1"), "res/levels/test", 32);
 				inLevel = true;
 			}
 		}
-	}
-	
-	@Override
-	public void update(Window window) {
+		
 		if (inLevel) level.update();
 		else menu.update();
 	}
 	
 	@Override
-	public void render(Window window, Camera camera) {
+	public void render() {
 		if (inLevel) {
-			camera.correctCamera(window, level);
-			renderer.render(window, camera, level);
-		} else menu.render(window);
+			camera.correctCamera(display.getWindow(), level);
+			renderer.render(display.getWindow(), camera, level);
+		} else menu.render(display.getWindow());
 	}
 	
 	@Override

@@ -4,7 +4,7 @@ import static artifice.engine.gui.ui.ColorComponent.rgba;
 import static org.lwjgl.glfw.GLFW.glfwSetWindowShouldClose;
 
 import artifice.engine.gui.*;
-import artifice.engine.io.Window;
+import nexus.engine.core.io.Window;
 import artifice.engine.render.texture.Texture;
 import nexus.engine.core.io.Keyboard;
 import nexus.engine.core.io.Mouse;

@@ -3,15 +3,18 @@ package artifice.engine.io;
 import org.joml.*;
 
 import artifice.engine.level.Level;
+import nexus.engine.core.io.DisplayManager;
+import nexus.engine.core.io.Window;
 
 public class Camera {
+	private static Camera camera;
 	
 	private Vector3f pos;
 	private Matrix4f projMat;
 	
-	public Camera(int width, int height) {
+	public Camera() {
 		pos = new Vector3f(0, 0, 0);
-		setProjection(width, height);
+		setProjection(DisplayManager.getInstance().getWindow().getWidth(), DisplayManager.getInstance().getWindow().getHeight());
 	}
 	
 	public void setProjection(int width, int height) {
@@ -20,10 +23,6 @@ public class Camera {
 	
 	public void setPos(Vector3f pos) {
 		this.pos = pos;
-	}
-	
-	public void addPos(Vector3f pos) {
-		this.pos.add(pos);
 	}
 	
 	public float getCameraLeft(int scale, int width) {
@@ -53,5 +52,10 @@ public class Camera {
 		if (pos.x < w + (windowWidth / 2) + level.getScale()) pos.x = w + (windowWidth / 2) + level.getScale();
 		if (pos.y < (windowHeight / 2) - level.getScale()) pos.y = (windowHeight / 2) - level.getScale();
 		if (pos.y > h - (windowHeight / 2) - level.getScale()) pos.y = h - (windowHeight / 2) - level.getScale();
+	}
+	
+	public static Camera getInstance() {
+		if (camera == null) camera = new Camera();
+		return camera;
 	}
 }

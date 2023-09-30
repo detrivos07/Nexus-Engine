@@ -4,13 +4,12 @@ import static org.lwjgl.glfw.GLFW.*;
 import org.joml.*;
 import java.lang.Math;
 
-import artifice.engine.io.*;
+import artifice.engine.io.Camera;
 import artifice.engine.level.Level;
 import artifice.engine.level.entity.Entity;
 import artifice.engine.level.entity.Projectile;
 import nexus.engine.core.collision.AABB;
-import nexus.engine.core.io.Keyboard;
-import nexus.engine.core.io.Mouse;
+import nexus.engine.core.io.*;
 import nexus.engine.sound.SoundManager;
 
 public class Player extends Entity {

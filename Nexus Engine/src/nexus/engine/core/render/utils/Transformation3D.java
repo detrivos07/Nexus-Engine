@@ -4,13 +4,12 @@ import java.lang.Math;
 
 import org.joml.*;
 
-import nexus.engine.core.io.Camera;
+import nexus.engine.core.io.camera.Camera;
 import nexus.engine.scene.GameObject;
 
 public class Transformation3D {
 	
-	private final Matrix4f 
-							projMat, 
+	private final Matrix4f  projMat, 
 							modelMat,
 							modelViewMat, 
 							modelLightViewMat,
@@ -102,5 +101,9 @@ public class Transformation3D {
 	
 	public Matrix4f getLightViewMat() {
 		return lightViewMat;
+	}
+	
+	public static Matrix4f getProjection(Matrix4f target, Vector3f scale, Vector3f pos) {
+		return target.translate(pos).scale(scale);
 	}
 }
