@@ -30,7 +30,7 @@ public class DisplayManager implements JsonLoader {
 	/**Initializes the window and the context*/
 	public void init() {
 		window.init();
-		context.createContext();
+		context.createContext(window.getCTX());
 	}
 	
 	/**Runs the basic updates in the window*/

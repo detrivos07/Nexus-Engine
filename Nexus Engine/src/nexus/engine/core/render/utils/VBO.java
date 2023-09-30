@@ -47,12 +47,12 @@ public class VBO {
 		glVertexAttribPointer(attrib, dataSize, GL_FLOAT, false, 0, offset * 16);
 	}
 	public void instanceAttribPointer(int attrib, int dataSize, int length, int offset) {
-		glVertexAttribPointer(attrib, dataSize, GL_FLOAT, false, length, offset);
+		glVertexAttribPointer(attrib, dataSize, GL_FLOAT, false, length * 4, offset * 4);
 		glVertexAttribDivisor(attrib, 1);
 	}
 	
 	public void instanceAttribPointer(int attrib, int dataSize, int length, int offset, int divisor) {
-		glVertexAttribPointer(attrib, dataSize, GL_FLOAT, false, length, offset);
+		glVertexAttribPointer(attrib, dataSize, GL_FLOAT, false, length * 4, offset * 4);
 		glVertexAttribDivisor(attrib, divisor);
 	}
 	

@@ -1,7 +1,7 @@
-package artifice.engine.gui.ui;
+package nexus.engine.core.gui.ui;
 
-import artifice.engine.gui.GUI;
-import artifice.engine.gui.GUIComponent;
+import nexus.engine.core.gui.GUI;
+import nexus.engine.core.gui.GUIComponent;
 import nexus.engine.core.io.*;
 
 public abstract class UIComponent {

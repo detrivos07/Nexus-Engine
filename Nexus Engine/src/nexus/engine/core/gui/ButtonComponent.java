@@ -1,6 +1,5 @@
-package artifice.engine.gui;
+package nexus.engine.core.gui;
 
-import static artifice.engine.gui.NVGUtils.rgba;
 import static org.lwjgl.nanovg.NanoVG.*;
 import static org.lwjgl.nanovg.NanoVGGL3.nvglCreateImageFromHandle;
 
@@ -8,9 +7,10 @@ import org.joml.Vector2d;
 import org.lwjgl.nanovg.NVGColor;
 import org.lwjgl.nanovg.NVGPaint;
 
-import artifice.engine.gui.ui.TextComponent;
-import artifice.engine.render.texture.Texture;
-import nexus.engine.core.io.*;
+import nexus.engine.core.gui.ui.TextComponent;
+import nexus.engine.core.io.Mouse;
+import nexus.engine.core.io.Window;
+import nexus.engine.core.render.opengl.Texture;
 
 public class ButtonComponent extends GUIComponent {
 	
@@ -43,14 +43,14 @@ public class ButtonComponent extends GUIComponent {
 	@Override
 	public void input(Mouse mouse) {
 		if (isHovered(mouse))  {
-			if (colup) active = rgba(select);
+			if (colup) active = NVGUtils.rgba(select);
 			if (texup) actTex = selectTex;
 			if (text != null) text.hover = true;
 			
 			if (mouse.check(Mouse.BUTTON_1)) invoke();
 			
 		} else {
-			if (colup) active = rgba(base);
+			if (colup) active = NVGUtils.rgba(base);
 			if (texup) actTex = baseTex;
 			if (text != null) text.hover = false;
 		}

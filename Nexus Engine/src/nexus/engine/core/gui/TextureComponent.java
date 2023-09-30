@@ -1,12 +1,13 @@
-package artifice.engine.gui;
+package nexus.engine.core.gui;
 
 import static org.lwjgl.nanovg.NanoVG.*;
 import static org.lwjgl.nanovg.NanoVGGL3.nvglCreateImageFromHandle;
 
 import org.lwjgl.nanovg.NVGPaint;
 
-import artifice.engine.render.texture.Texture;
-import nexus.engine.core.io.*;
+import nexus.engine.core.io.Mouse;
+import nexus.engine.core.io.Window;
+import nexus.engine.core.render.opengl.Texture;
 
 public class TextureComponent extends GUIComponent {
 

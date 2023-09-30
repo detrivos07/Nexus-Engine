@@ -1,14 +1,14 @@
-package artifice.engine.gui.ui;
+package nexus.engine.core.gui.ui;
 
 import static org.lwjgl.nanovg.NanoVG.*;
 import static org.lwjgl.nanovg.NanoVGGL3.nvglCreateImageFromHandle;
 
 import org.lwjgl.nanovg.NVGPaint;
 
-import artifice.engine.gui.GUI;
-import artifice.engine.gui.GUIComponent;
-import artifice.engine.render.texture.Texture;
+import nexus.engine.core.gui.GUI;
+import nexus.engine.core.gui.GUIComponent;
 import nexus.engine.core.io.*;
+import nexus.engine.core.render.opengl.Texture;
 
 public class TextureComponent extends ColorComponent {
 	

@@ -1,4 +1,4 @@
-package artifice.engine.gui;
+package nexus.engine.core.gui;
 
 import nexus.engine.core.io.*;
 

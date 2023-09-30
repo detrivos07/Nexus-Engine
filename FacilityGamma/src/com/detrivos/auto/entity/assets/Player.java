@@ -301,7 +301,7 @@ public class Player extends Entity {
 		} else {
 			Game.turhall2 = false;
 		}
-		if (level.getTile((int) ox, (int) oy).equals(Tile.toturhall3)) {
+		if (level.getTile((int) ox, (int) oy).equals(Tile.toturhall3) || level.getTile((int) ox, (int) oy).equals(Tile.tothft)) {
 			Game.toturhall3 = true;
 		} else {
 			Game.toturhall3 = false;
