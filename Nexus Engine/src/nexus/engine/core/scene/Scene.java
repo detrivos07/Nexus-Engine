@@ -1,4 +1,4 @@
-package nexus.engine.scene;
+package nexus.engine.core.scene;
 
 import java.util.*;
 

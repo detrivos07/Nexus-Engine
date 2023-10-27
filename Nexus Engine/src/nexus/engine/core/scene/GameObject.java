@@ -1,4 +1,4 @@
-package nexus.engine.scene;
+package nexus.engine.core.scene;
 
 import org.joml.Quaternionf;
 import org.joml.Vector3f;

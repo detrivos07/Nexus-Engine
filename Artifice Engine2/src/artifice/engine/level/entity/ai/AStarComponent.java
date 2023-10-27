@@ -4,9 +4,10 @@ import java.util.*;
 
 import org.joml.Vector2i;
 
-import artifice.engine.level.*;
+import artifice.engine.level.Level;
 import artifice.engine.level.entity.Entity;
 import artifice.engine.level.tile.Tile;
+import nexus.engine.core.ai.Node;
 
 public abstract class AStarComponent {
 	

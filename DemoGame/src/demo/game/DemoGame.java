@@ -9,7 +9,7 @@ import nexus.engine.core.io.camera.Camera;
 import nexus.engine.core.io.camera.Camera3D;
 import nexus.engine.core.render.Scene3dRenderer;
 import nexus.engine.core.render.opengl.*;
-import nexus.engine.scene.*;
+import nexus.engine.core.scene.*;
 import nexus.engine.utils.loaders.OBJLoader;
 
 public class DemoGame implements IProgram {
@@ -31,7 +31,6 @@ public class DemoGame implements IProgram {
 	private Scene3d scene;
 	
 	private final Vector3f cameraInc;
-	private static final float CAMERA_STEP = 0.07f;
 	
 	private Terrain terrain;
 	private GameObject plane;
@@ -92,7 +91,7 @@ public class DemoGame implements IProgram {
 	
 	@Override
 	public void update() {
-		camera.move(cameraInc.x * CAMERA_STEP, cameraInc.y * CAMERA_STEP, cameraInc.z * CAMERA_STEP);
+		camera.move(cameraInc.x, cameraInc.y, cameraInc.z, 0.07f);
 		
 		//float height = terrain.getHeight(camera.getPos()) + 1.0f;
 //		if (camera.getPos().y <= height) {

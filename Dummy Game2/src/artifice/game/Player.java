@@ -10,7 +10,7 @@ import artifice.engine.level.entity.Entity;
 import artifice.engine.level.entity.Projectile;
 import nexus.engine.core.collision.AABB;
 import nexus.engine.core.io.*;
-import nexus.engine.sound.SoundManager;
+import nexus.engine.core.sound.SoundManager;
 
 public class Player extends Entity {
 	

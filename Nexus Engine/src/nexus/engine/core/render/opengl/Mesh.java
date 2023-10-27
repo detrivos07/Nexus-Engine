@@ -14,7 +14,7 @@ import org.lwjgl.system.MemoryUtil;
 
 import nexus.engine.core.render.utils.VAO;
 import nexus.engine.core.render.utils.VBO;
-import nexus.engine.scene.GameObject;
+import nexus.engine.core.scene.GameObject;
 
 public class Mesh {
 	public static final int MAX_WEIGHTS = 4;

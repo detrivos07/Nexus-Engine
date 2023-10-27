@@ -15,7 +15,7 @@ import org.lwjgl.system.MemoryUtil;
 
 import nexus.engine.core.render.utils.Transformation3D;
 import nexus.engine.core.render.utils.VBO;
-import nexus.engine.scene.GameObject;
+import nexus.engine.core.scene.GameObject;
 
 public class InstancedMesh extends Mesh {
 	static final int MAT_SIZE_FLOATS = 4 * 4,

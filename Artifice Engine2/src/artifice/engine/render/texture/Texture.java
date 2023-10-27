@@ -20,8 +20,7 @@ public class Texture {
 	
 	public Texture() {
 		width = height = 0;
-		raw = new int[width * height * 4];
-		for (int i = 0 ; i < raw.length; i++) raw[i] = 0xFF000000;
+		raw = new int[0];
 	}
 	
 	/**

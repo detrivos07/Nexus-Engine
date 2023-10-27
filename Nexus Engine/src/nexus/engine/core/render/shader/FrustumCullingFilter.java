@@ -7,7 +7,7 @@ import java.util.Map;
 import org.joml.*;
 
 import nexus.engine.core.render.opengl.Mesh;
-import nexus.engine.scene.GameObject;
+import nexus.engine.core.scene.GameObject;
 
 public class FrustumCullingFilter {
 

@@ -6,10 +6,12 @@ public class Camera {
 	private static Camera camera;
 	
 	protected final Vector3f pos, rot;
+	protected Vector3f cameraInc;
 	
 	public Camera() {
 		pos = new Vector3f();
 		rot = new Vector3f();
+		cameraInc = new Vector3f();
 	}
 	
 	public Camera(Vector3f pos, Vector3f rot) {

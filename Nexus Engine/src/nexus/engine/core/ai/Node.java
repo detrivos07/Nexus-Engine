@@ -1,9 +1,9 @@
-package artifice.engine.level;
+package nexus.engine.core.ai;
 
 import org.joml.Vector2i;
 
 public class Node {
-	
+
 	public int dist = 0;
 
 	public Vector2i tile;

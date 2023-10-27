@@ -1,4 +1,4 @@
-package nexus.engine.sound;
+package nexus.engine.core.sound;
 
 import static org.lwjgl.openal.AL10.*;
 

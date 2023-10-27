@@ -14,6 +14,7 @@ import artifice.engine.render.model.InstMaterial;
 import artifice.engine.render.model.InstMesh;
 import artifice.engine.render.shader.Shader;
 import artifice.engine.render.texture.TextureAtlas;
+import nexus.engine.core.ai.Node;
 import nexus.engine.core.io.Window;
 
 public abstract class Level {

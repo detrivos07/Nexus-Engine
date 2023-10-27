@@ -1,4 +1,4 @@
-package nexus.engine.scene;
+package nexus.engine.core.scene;
 
 import nexus.engine.core.render.opengl.*;
 import nexus.engine.utils.loaders.OBJLoader;

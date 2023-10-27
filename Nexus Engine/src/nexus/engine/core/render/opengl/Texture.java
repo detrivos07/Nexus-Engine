@@ -30,6 +30,21 @@ public class Texture {
 	protected String path;
 	protected boolean isLoaded;
 	
+	public Texture() {
+		width = height = 0;
+		raw = new int[0];
+	}
+	
+	/**
+	 * Generates a square, black texture
+	 * @param size Size of blank texture to be generated
+	 */
+	public Texture(int size) {
+		width = height = size;
+		raw = new int[width * height * 4];
+		for (int i = 0 ; i < raw.length; i++) raw[i] = 0xFF000000;
+	}
+	
 	public Texture(String path) {
 		this.iID = nID++;
 		this.path = path;

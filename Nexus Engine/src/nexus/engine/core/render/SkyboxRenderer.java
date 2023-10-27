@@ -4,8 +4,8 @@ import org.joml.Matrix4f;
 
 import nexus.engine.core.render.shader.Shader;
 import nexus.engine.core.render.utils.Transformation3D;
-import nexus.engine.scene.Scene3d;
-import nexus.engine.scene.Skybox;
+import nexus.engine.core.scene.Scene3d;
+import nexus.engine.core.scene.Skybox;
 
 public class SkyboxRenderer extends ShadedRenderer {
 

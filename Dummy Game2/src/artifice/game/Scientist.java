@@ -6,9 +6,9 @@ import org.joml.Vector2i;
 import org.joml.Vector3f;
 
 import artifice.engine.level.Level;
-import artifice.engine.level.Node;
 import artifice.engine.level.entity.Entity;
 import artifice.engine.level.entity.ai.AStarComponent;
+import nexus.engine.core.ai.Node;
 
 public class Scientist extends Entity {
 

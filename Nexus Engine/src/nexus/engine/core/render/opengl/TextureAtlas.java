@@ -1,4 +1,4 @@
-package artifice.engine.render.texture;
+package nexus.engine.core.render.opengl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,50 +6,26 @@ import java.util.List;
 import org.joml.Vector2i;
 import org.lwjgl.BufferUtils;
 
-import artifice.engine.level.tile.TileTypes;
-
 public class TextureAtlas extends Texture {
 	
 	private List<Texture> textures;
 	private List<Vector2i> offsets;
-	private List<TileTypes> types;
-
+	
 	private int size, texSize;
+
+	public TextureAtlas(String path) {
+		super(path);
+	}
 	
 	public TextureAtlas(List<Texture> textures) {
 		this.textures = textures;
 		this.offsets = new ArrayList<Vector2i>();
-		this.types = new ArrayList<TileTypes>();
 		this.texSize = this.textures.get(0).getWidth();
 		this.size = (int) Math.ceil(Math.sqrt(this.textures.size()));
 		this.width = this.height = this.size * this.texSize;
 		this.raw = new int[width * height];
 		loadTexturesToAtlas();
 		genGLTexture();
-	}
-
-	public Vector2i getOffset(Texture t) {
-		return offsets.get(textures.indexOf(t));
-	}
-	
-	public List<Texture> getTextureList() {
-		return textures;
-	}
-	
-	public List<TileTypes> getTileTypes() {
-		return types;
-	}
-	
-	public int getWidth() {
-		return size * texSize;
-	}
-	
-	public int getSize() {
-		return size;
-	}
-	
-	public int getTexSize() {
-		return texSize;
 	}
 	
 	private void loadTexturesToAtlas() {
@@ -89,5 +65,26 @@ public class TextureAtlas extends Texture {
 		}
 		
 		pixels.flip();
+	}
+	
+	//GETTERS
+	public Vector2i getOffset(Texture t) {
+		return offsets.get(textures.indexOf(t));
+	}
+	
+	public List<Texture> getTextureList() {
+		return textures;
+	}
+	
+	public int getWidth() {
+		return size * texSize;
+	}
+	
+	public int getSize() {
+		return size;
+	}
+	
+	public int getTexSize() {
+		return texSize;
 	}
 }

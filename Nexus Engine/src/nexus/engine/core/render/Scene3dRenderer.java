@@ -16,8 +16,8 @@ import nexus.engine.core.render.shader.Shader;
 import nexus.engine.core.render.shader.d3.lighting.DirectionalLight;
 import nexus.engine.core.render.shader.d3.lighting.SceneLight;
 import nexus.engine.core.render.utils.Transformation3D;
-import nexus.engine.scene.GameObject;
-import nexus.engine.scene.Scene3d;
+import nexus.engine.core.scene.GameObject;
+import nexus.engine.core.scene.Scene3d;
 
 public class Scene3dRenderer extends ShadedRenderer {
 

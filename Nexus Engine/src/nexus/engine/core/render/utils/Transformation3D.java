@@ -5,7 +5,7 @@ import java.lang.Math;
 import org.joml.*;
 
 import nexus.engine.core.io.camera.Camera;
-import nexus.engine.scene.GameObject;
+import nexus.engine.core.scene.GameObject;
 
 public class Transformation3D {
 	

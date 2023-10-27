@@ -6,7 +6,7 @@ import nexus.engine.Engine;
 import nexus.engine.IProgram;
 import nexus.engine.core.io.DisplayManager;
 import nexus.engine.core.io.Mouse;
-import nexus.engine.sound.*;
+import nexus.engine.core.sound.*;
 
 public class Host implements IProgram {
 	

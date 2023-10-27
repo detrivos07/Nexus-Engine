@@ -8,7 +8,7 @@ import artifice.engine.level.tile.TileMap;
 import artifice.engine.render.texture.TextureAtlas;
 import nexus.engine.core.io.Mouse;
 import nexus.engine.core.io.Window;
-import nexus.engine.sound.SoundManager;
+import nexus.engine.core.sound.SoundManager;
 
 public class DummyLevel extends Level {
 
