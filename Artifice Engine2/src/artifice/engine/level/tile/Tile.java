@@ -6,7 +6,6 @@ public class Tile {
 	
 	private int x, y;
 	private TileMap map;
-	private Tile[] nearby;
 	
 	private InstMaterial imat;
 	private boolean solid = false;
@@ -16,10 +15,6 @@ public class Tile {
 		this.x = x;
 		this.y = y;
 		this.imat = material;
-	}
-	
-	public void setNearby(Tile... nearby) {
-		this.nearby = nearby;
 	}
 	
 	public void setSolid() {
@@ -41,10 +36,6 @@ public class Tile {
 	
 	public TileMap getMap() {
 		return map;
-	}
-	
-	public Tile[] getNearby() {
-		return nearby;
 	}
 	
 	public InstMaterial getImat() {

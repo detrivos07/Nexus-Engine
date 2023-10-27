@@ -140,7 +140,6 @@ public class TileMap {
 				initTile(x, y, types[0], false);
 			}
 		}
-		gatherNeighbours();
 	}
 	
 	void genLevel(int pixel, int x, int y) {
@@ -260,7 +259,6 @@ public class TileMap {
 			System.out.println("Unable to load texture at: " + path);
 			e.printStackTrace();
 		}
-		gatherNeighbours();
 	}
 	
 	//SETTERS
@@ -271,7 +269,6 @@ public class TileMap {
 				map[x][y].setSolid();
 				bbmap[x][y] = new AABB(new Vector2f(x * 2, -y * 2), new Vector2f(1,1));
 			}
-			gatherNeighbours(x, y);
 		} catch (ArrayIndexOutOfBoundsException e) {}//THROWS HELLA EXCEPTIONS
 	}
 	
@@ -324,31 +321,6 @@ public class TileMap {
 		return bbmap;
 	}
 	
-	protected void gatherNeighbours() {
-		for (int y = 0; y < height; y++) {
-			for (int x = 0; x < width; x++) {
-				gatherNeighbours(x, y);
-			}
-		}
-	}
 	
-	protected void gatherNeighbours(int x, int y) {
-		Tile[] near = new Tile[8];
-		for (int i = 0; i < 9; i++) {
-			if (i == 4) continue;
-			int xi = (i % 3) - 1;
-			int yi = (i / 3) - 1;
-			int xa = x + xi;
-			int ya = y + yi;
-			if (xa < 0) xa = width - 1;
-			else if (xa > width) xa = 0;
-			if (ya < 0) ya = height - 1;
-			else if (ya > width) ya = 0;
-			
-			Tile t = getTile(xa, ya);
-			if (i < 4) near[i] = t;
-			else if (i > 4) near[i-1] = t;
-		}
-		map[x][y].setNearby(near);
-	}
+	
 }
