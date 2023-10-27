@@ -1,5 +1,7 @@
 package artifice.engine.render.texture;
 
+import nexus.engine.core.render.opengl.Texture;
+
 public class Animation {
 	
 	Texture[] frames;

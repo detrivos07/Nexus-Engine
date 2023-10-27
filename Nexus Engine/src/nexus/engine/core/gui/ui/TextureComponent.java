@@ -18,13 +18,13 @@ public class TextureComponent extends ColorComponent {
 	public TextureComponent(GUI ui, GUIComponent comp, Texture t) {
 		super(ui, comp, rgba(0,0,0,0));
 		this.vg = ui.getVG();
-		this.t = nvglCreateImageFromHandle(vg, t.getID(), t.getWidth(), t.getHeight(), NVG_IMAGE_FLIPY);
+		this.t = nvglCreateImageFromHandle(vg, t.getID(), t.getWidth(), t.getHeight(), NVG_IMAGE_NEAREST);
 	}
 
 	public TextureComponent(GUI ui, GUIComponent comp, float x, float y, float w, float h, Texture t) {
 		super(ui, comp, x, y, w, h, rgba(0,0,0,0));
 		this.vg = ui.getVG();
-		this.t = nvglCreateImageFromHandle(vg, t.getID(), t.getWidth(), t.getHeight(), NVG_IMAGE_FLIPY);
+		this.t = nvglCreateImageFromHandle(vg, t.getID(), t.getWidth(), t.getHeight(), NVG_IMAGE_NEAREST);
 	}
 	
 	@Override
@@ -43,7 +43,7 @@ public class TextureComponent extends ColorComponent {
 	public void render(Window window) {
 		nvgBeginPath(ui.getVG());
 		try (NVGPaint paint = NVGPaint.calloc()) {
-			nvgImagePattern(vg, ui.getX() + x, ui.getY() + y, w, h, (float) Math.toRadians(90), activet, 1, paint);
+			nvgImagePattern(vg, ui.getX() + x, ui.getY() + y, w, h, (float) Math.toRadians(0), activet, 1, paint);
 			nvgRect(vg, ui.getX() + comp.getX() + x, ui.getY() + comp.getY() + y, w, h);
 			nvgFillPaint(vg, paint);
 		}

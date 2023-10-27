@@ -18,7 +18,7 @@ public class TextureComponent extends GUIComponent {
 	}
 	
 	public void initTextures(Texture t) {
-		this.t2 = nvglCreateImageFromHandle(ui.getVG(), t.getID(), t.getWidth(), t.getHeight(), NVG_IMAGE_FLIPY);
+		this.t2 = nvglCreateImageFromHandle(ui.getVG(), t.getID(), t.getWidth(), t.getHeight(), NVG_IMAGE_NEAREST);
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class TextureComponent extends GUIComponent {
 	public void render(Window window) {
 		nvgBeginPath(ui.getVG());
 		try (NVGPaint paint = NVGPaint.calloc()) {
-			nvgImagePattern(ui.getVG(), ui.getX() + x, ui.getY() + y, w, h, (float) Math.toRadians(90), t2, 1, paint);
+			nvgImagePattern(ui.getVG(), ui.getX() + x, ui.getY() + y, w, h, (float) Math.toRadians(0), t2, 1, paint);
 			nvgRect(ui.getVG(), ui.getX() + x, ui.getY() + y, w, h);
 			nvgFillPaint(ui.getVG(), paint);
 		}

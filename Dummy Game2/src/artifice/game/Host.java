@@ -1,7 +1,7 @@
 package artifice.game;
 
-import artifice.engine.AssetLoader;
 import artifice.engine.io.Camera;
+import artifice.engine.render.texture.TextureAtlas;
 import nexus.engine.Engine;
 import nexus.engine.IProgram;
 import nexus.engine.core.io.DisplayManager;
@@ -73,7 +73,7 @@ public class Host implements IProgram {
 			level.input(display.getWindow(), camera, mouse, sm);
 		} else {
 			if (menu.start()) {
-				level = new DummyLevel(AssetLoader.loadAtlas("res/MapSet1"), "res/levels/test", 32);
+				level = new DummyLevel(TextureAtlas.loadAtlas("res/MapSet1"), "res/levels/test", 32);
 				inLevel = true;
 			}
 		}

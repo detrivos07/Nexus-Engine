@@ -1,13 +1,11 @@
 package artifice.game;
 
-import static artifice.engine.gui.ui.ColorComponent.rgba;
+import static nexus.engine.core.gui.NVGUtils.rgba;
 import static org.lwjgl.glfw.GLFW.glfwSetWindowShouldClose;
 
-import artifice.engine.gui.*;
-import nexus.engine.core.io.Window;
-import artifice.engine.render.texture.Texture;
-import nexus.engine.core.io.Keyboard;
-import nexus.engine.core.io.Mouse;
+import nexus.engine.core.gui.*;
+import nexus.engine.core.io.*;
+import nexus.engine.core.render.opengl.Texture;
 
 public class MainMenu {
 
@@ -27,7 +25,7 @@ public class MainMenu {
 		ui.addComponent(bg, 0);
 		
 		TextureComponent main = new TextureComponent(ui, 400, 50, 777, 777);
-		main.initTextures(new Texture("res/guis/mainMenu"));
+		main.initTextures(new Texture("res/guis/mainMenu.png").load());
 		ui.addComponent(main, 1);
 		
 		ButtonComponent ng = new ButtonComponent(ui, 740, 340, 120, 32) {

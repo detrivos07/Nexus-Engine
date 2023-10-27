@@ -24,9 +24,9 @@ public class Mesh {
 	
 	protected float[] texs = new float[] {
 			0, 0,
-			0, 1,
+			1, 0,
 			1, 1,
-			1, 0
+			0, 1,
 	};
 	
 	protected int[] inds = new int[] {

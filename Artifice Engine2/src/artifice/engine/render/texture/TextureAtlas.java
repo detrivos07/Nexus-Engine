@@ -1,5 +1,6 @@
 package artifice.engine.render.texture;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,5 +90,15 @@ public class TextureAtlas extends Texture {
 		}
 		
 		pixels.flip();
+	}
+	
+	public static TextureAtlas loadAtlas(String path) {
+		List<Texture> textures = new ArrayList<Texture>();
+		String tempPath = path + "/";
+		File root = new File(tempPath);
+		for (int j = 0; j < root.list().length; j++) {
+			textures.add(new Texture(tempPath + root.list()[j]));
+		}
+		return new TextureAtlas(textures);
 	}
 }

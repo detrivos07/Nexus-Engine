@@ -6,9 +6,9 @@ import org.joml.Vector2f;
 import org.joml.Vector3f;
 
 import artifice.engine.level.Level;
-import artifice.engine.render.texture.Texture;
 import nexus.engine.core.collision.AABB;
 import nexus.engine.core.collision.AABB.Collision;
+import nexus.engine.core.render.opengl.Texture;
 
 public class Projectile extends Entity {
 	
