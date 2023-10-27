@@ -163,6 +163,38 @@ public class Shader {
 		}
 	}
 	
+	/**
+	 * Stores data from a Matrix4f to the given float array
+	 * @param matrix Matrix of data
+	 * @param data Array to have data put into
+	 * @param pointer pointer to data
+	 * @return pointer
+	 */
+	public int storeData(Matrix4f matrix, float[] data, int pointer) {
+		data[pointer++] = matrix.m00();
+		data[pointer++] = matrix.m01();
+		data[pointer++] = matrix.m02();
+		data[pointer++] = matrix.m03();
+		data[pointer++] = matrix.m10();
+		data[pointer++] = matrix.m11();
+		data[pointer++] = matrix.m12();
+		data[pointer++] = matrix.m13();
+		data[pointer++] = matrix.m20();
+		data[pointer++] = matrix.m21();
+		data[pointer++] = matrix.m22();
+		data[pointer++] = matrix.m23();
+		data[pointer++] = matrix.m30();
+		data[pointer++] = matrix.m31();
+		data[pointer++] = matrix.m32();
+		data[pointer++] = matrix.m33();
+		return pointer;
+	}
+	
+	public int storeData(float[] data, float[] target, int pointer) {
+		for (int i = 0; i < data.length; i++) target[pointer++] = data[i];
+		return pointer;
+	}
+	
 	/******************************************* CREATION **********************************************************/
 	
 	/**

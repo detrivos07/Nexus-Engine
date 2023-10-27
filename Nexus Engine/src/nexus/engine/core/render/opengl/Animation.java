@@ -1,6 +1,4 @@
-package artifice.engine.render.texture;
-
-import nexus.engine.core.render.opengl.Texture;
+package nexus.engine.core.render.opengl;
 
 public class Animation {
 	

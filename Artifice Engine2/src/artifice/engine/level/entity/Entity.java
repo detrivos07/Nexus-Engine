@@ -7,10 +7,10 @@ import org.joml.*;
 import artifice.engine.io.Camera;
 import artifice.engine.level.Level;
 import artifice.engine.render.model.Mesh;
-import artifice.engine.render.shader.Shader;
 import nexus.engine.core.collision.AABB;
 import nexus.engine.core.collision.AABB.Collision;
 import nexus.engine.core.render.opengl.Texture;
+import nexus.engine.core.render.shader.Shader;
 import nexus.engine.core.render.utils.Transformation3D;
 
 public abstract class Entity {
@@ -78,7 +78,7 @@ public abstract class Entity {
 		Matrix4f target = camera.getProjection();
 		target.mul(level.getLevelData());
 		
-		shader.setSampler();
+		shader.setUniform("sampler", 0);
 		shader.setUniform("projMat", Transformation3D.getProjection(target, scale, pos));
 		debugTexture.bind(0);
 		mesh.render();

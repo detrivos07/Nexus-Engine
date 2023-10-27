@@ -1,6 +1,7 @@
 package artifice.game;
 
 import artifice.engine.io.Camera;
+import artifice.engine.render.Renderer;
 import artifice.engine.render.texture.TextureAtlas;
 import nexus.engine.Engine;
 import nexus.engine.IProgram;

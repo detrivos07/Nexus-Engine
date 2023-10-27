@@ -12,10 +12,10 @@ import artifice.engine.level.tile.Tile;
 import artifice.engine.level.tile.TileMap;
 import artifice.engine.render.model.InstMaterial;
 import artifice.engine.render.model.InstMesh;
-import artifice.engine.render.shader.Shader;
 import artifice.engine.render.texture.TextureAtlas;
 import nexus.engine.core.ai.Node;
 import nexus.engine.core.io.Window;
+import nexus.engine.core.render.shader.Shader;
 
 public abstract class Level {
 	protected Random rand = new Random();
@@ -116,7 +116,7 @@ public abstract class Level {
 			pointer = shader.storeData(data.get(i).getTexUnits(), vboData, pointer);
 		}
 		
-		shader.setSampler(0);
+		shader.setUniform("sampler", 0);
 		mesh.render(targets.size(), vboData);
 		
 		targets.clear();
