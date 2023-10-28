@@ -8,6 +8,7 @@ import org.joml.Vector3f;
 import artifice.engine.level.Level;
 import nexus.engine.core.collision.AABB;
 import nexus.engine.core.collision.AABB.Collision;
+import nexus.engine.core.render.opengl.Material;
 import nexus.engine.core.render.opengl.Texture;
 
 public class Projectile extends Entity {
@@ -36,6 +37,7 @@ public class Projectile extends Entity {
 		nx = (float) (speed * Math.cos(angle));
 		ny = (float) (speed * Math.sin(angle));
 		debugTexture = new Texture(1, 0xFF000000);
+		mesh.setMaterial(new Material(debugTexture));
 		scale = new Vector3f(0.1f);
 	}
 	

@@ -41,7 +41,9 @@ public class Camera {
 		return projMat.translate(pos, new Matrix4f());
 	}
 	
-	public void correctCamera(Window window, Level level) {
+	public void correctCamera(Level level) {
+		Window window = DisplayManager.getInstance().getWindow();
+		
 		int w = (-level.getWidth()) * level.getScale() * 2;
 		int h = (level.getHeight()) * level.getScale() * 2;
 		

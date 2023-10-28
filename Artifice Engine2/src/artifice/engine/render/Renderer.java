@@ -2,7 +2,6 @@ package artifice.engine.render;
 
 import artifice.engine.io.Camera;
 import artifice.engine.level.Level;
-import nexus.engine.core.io.Window;
 import nexus.engine.core.render.shader.Shader;
 
 public class Renderer implements IRenderer {
@@ -10,7 +9,7 @@ public class Renderer implements IRenderer {
 	Shader inst, basic;
 	
 	@Override
-	public void init(Window window) {
+	public void init() {
 		basic = new Shader("basic");
 		basic.createUniform("sampler");
 		basic.createUniform("projMat");
@@ -19,7 +18,7 @@ public class Renderer implements IRenderer {
 	}
 	
 	@Override
-	public void render(Window window, Camera camera, Level level) {
+	public void render(Camera camera, Level level) {
 		if (level != null) {
 			level.renderLevel(inst, camera, level.getMap());
 			level.renderEnts(basic, camera);

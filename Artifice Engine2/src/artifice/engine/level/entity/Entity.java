@@ -6,10 +6,9 @@ import org.joml.*;
 
 import artifice.engine.io.Camera;
 import artifice.engine.level.Level;
-import artifice.engine.render.model.Mesh;
 import nexus.engine.core.collision.AABB;
 import nexus.engine.core.collision.AABB.Collision;
-import nexus.engine.core.render.opengl.Texture;
+import nexus.engine.core.render.opengl.*;
 import nexus.engine.core.render.shader.Shader;
 import nexus.engine.core.render.utils.Transformation3D;
 
@@ -43,8 +42,9 @@ public abstract class Entity {
 		this.tilePos = pos;
 		this.pos = new Vector3f(pos.x * 2, -(pos.y * 2), 0);
 		this.scale = new Vector3f(1);
-		this.mesh = new Mesh();
+		this.mesh = new Mesh2D();
 		this.debugTexture = new Texture("res/0.png").load();
+		mesh.setMaterial(new Material(debugTexture));
 		this.bb = new AABB(new Vector2f(pos.x, pos.y), new Vector2f(scale.x - 0.1f, scale.y));
 	}
 	
@@ -56,8 +56,9 @@ public abstract class Entity {
 		this.pos = pos;
 		this.tilePos = new Vector2i(pos.x / 2, -(pos.y / 2), 0);
 		this.scale = new Vector3f(1);
-		this.mesh = new Mesh();
+		this.mesh = new Mesh2D();
 		this.debugTexture = new Texture("res/0.png").load();
+		mesh.setMaterial(new Material(debugTexture));
 		this.bb = new AABB(new Vector2f(pos.x, pos.y), new Vector2f(scale.x - 0.1f, scale.y));
 	}
 	

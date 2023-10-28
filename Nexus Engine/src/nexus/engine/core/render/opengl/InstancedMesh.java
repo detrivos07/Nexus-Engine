@@ -19,8 +19,8 @@ import nexus.engine.core.scene.GameObject;
 
 public class InstancedMesh extends Mesh {
 	static final int MAT_SIZE_FLOATS = 4 * 4,
-			 VEC4F_SIZE_BYTES = 4 * 4,
-			 MAT_SIZE_BYTES = 4 * VEC4F_SIZE_BYTES;
+			 		 VEC4F_SIZE_BYTES = 4 * 4,
+			 		 MAT_SIZE_BYTES = 4 * VEC4F_SIZE_BYTES;
 	
 	private final int amt;
 	private final VBO mvvbo, mlvvbo;

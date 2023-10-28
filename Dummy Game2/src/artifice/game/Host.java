@@ -36,9 +36,9 @@ public class Host implements IProgram {
 		mouse = Mouse.getInstance();
 		
 		renderer = new Renderer();
-		renderer.init(display.getWindow());
+		renderer.init();
 		
-		//level = new DummyLevel(AssetLoader.loadAtlas("res/MapSet1"), "res/levels/test", 32);
+		level = new DummyLevel(TextureAtlas.loadAtlas("res/MapSet1"), "res/levels/test", 32);
 		if (level != null) inLevel = true;
 		
 		sm = SoundManager.getInstance();
@@ -64,7 +64,7 @@ public class Host implements IProgram {
 	
 	@Override
 	public void input() {//Updates as fast as renderer
-		if (menu != null) menu.input();
+		if (menu != null && !inLevel) menu.input();
 	}
 	
 	@Override
@@ -86,8 +86,8 @@ public class Host implements IProgram {
 	@Override
 	public void render() {
 		if (inLevel) {
-			camera.correctCamera(display.getWindow(), level);
-			renderer.render(display.getWindow(), camera, level);
+			camera.correctCamera(level);
+			renderer.render(camera, level);
 		} else menu.render(display.getWindow());
 	}
 	

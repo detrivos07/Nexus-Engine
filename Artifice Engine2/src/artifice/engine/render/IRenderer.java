@@ -4,11 +4,10 @@ import static org.lwjgl.opengl.GL11.*;
 
 import artifice.engine.io.Camera;
 import artifice.engine.level.Level;
-import nexus.engine.core.io.Window;
 
 public interface IRenderer {
-	void init(Window window);
-	void render(Window window, Camera camera, Level level);
+	void init();
+	void render(Camera camera, Level level);
 	void destroy();
 	
 	default void clear() {

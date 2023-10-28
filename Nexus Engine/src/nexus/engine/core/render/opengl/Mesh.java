@@ -54,8 +54,10 @@ public class Mesh {
 			textureBuffer = MemoryUtil.memAllocFloat(texCoords.length);
 			textureBuffer.put(texCoords).flip();
 			
-			normBuffer = MemoryUtil.memAllocFloat(normals.length);
-			normBuffer.put(normals).flip();
+			if (normals.length != 0) {
+				normBuffer = MemoryUtil.memAllocFloat(normals.length);
+				normBuffer.put(normals).flip();
+			}
 			
 			weightBuffer = MemoryUtil.memAllocFloat(weights.length);
 			weightBuffer.put(weights).flip();
@@ -92,12 +94,14 @@ public class Mesh {
 			vbos.add(vbo);
 			
 			//NORMALS
-			vbo = new VBO(GL_ARRAY_BUFFER);
-			vbo.bind();
-			vbo.uploadData(normBuffer);
-			glEnableVertexAttribArray(2);
-			glVertexAttribPointer(2, 3, GL_FLOAT, false, 0, 0);
-			vbos.add(vbo);
+			if (normals.length != 0) {
+				vbo = new VBO(GL_ARRAY_BUFFER);
+				vbo.bind();
+				vbo.uploadData(normBuffer);
+				glEnableVertexAttribArray(2);
+				glVertexAttribPointer(2, 3, GL_FLOAT, false, 0, 0);
+				vbos.add(vbo);
+			}
 			
 			//WEIGHTS
 			vbo = new VBO(GL_ARRAY_BUFFER);
