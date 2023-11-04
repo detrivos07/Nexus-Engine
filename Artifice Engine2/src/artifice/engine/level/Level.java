@@ -12,9 +12,9 @@ import artifice.engine.level.tile.Tile;
 import artifice.engine.level.tile.TileMap;
 import artifice.engine.render.model.InstMaterial;
 import artifice.engine.render.model.InstMesh;
-import artifice.engine.render.texture.TextureAtlas;
 import nexus.engine.core.ai.Node;
 import nexus.engine.core.io.Window;
+import nexus.engine.core.render.opengl.TextureAtlas;
 import nexus.engine.core.render.shader.Shader;
 
 public abstract class Level {

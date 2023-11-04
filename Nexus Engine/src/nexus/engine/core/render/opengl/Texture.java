@@ -19,7 +19,7 @@ import org.lwjgl.BufferUtils;
 import org.lwjgl.system.MemoryStack;
 
 public class Texture {
-	private static long nID = Integer.MAX_VALUE;
+	private static long nID = 0;
 	
 	protected long iID;
 	protected int id;

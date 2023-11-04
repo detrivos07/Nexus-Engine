@@ -1,20 +1,20 @@
 package artifice.engine.level.tile;
 
-import static artifice.engine.level.tile.TileTypes.*;
+import static nexus.engine.d2.TileTypes.*;
 
 import java.awt.image.BufferedImage;
-import java.io.*;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
 
 import javax.imageio.ImageIO;
 
 import org.joml.Vector2f;
 
 import artifice.engine.render.model.InstMaterial;
-import artifice.engine.render.texture.Texture;
 import nexus.engine.core.collision.AABB;
+import nexus.engine.core.render.opengl.Texture;
+import nexus.engine.d2.TileTypes;
 
 public class TileMap {
 	

@@ -2,11 +2,11 @@ package artifice.game;
 
 import artifice.engine.io.Camera;
 import artifice.engine.render.Renderer;
-import artifice.engine.render.texture.TextureAtlas;
 import nexus.engine.Engine;
 import nexus.engine.IProgram;
 import nexus.engine.core.io.DisplayManager;
 import nexus.engine.core.io.Mouse;
+import nexus.engine.core.render.opengl.TextureAtlas;
 import nexus.engine.core.sound.*;
 
 public class Host implements IProgram {

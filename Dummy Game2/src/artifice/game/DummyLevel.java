@@ -5,9 +5,9 @@ import org.joml.Vector2i;
 import artifice.engine.io.Camera;
 import artifice.engine.level.Level;
 import artifice.engine.level.tile.TileMap;
-import artifice.engine.render.texture.TextureAtlas;
 import nexus.engine.core.io.Mouse;
 import nexus.engine.core.io.Window;
+import nexus.engine.core.render.opengl.TextureAtlas;
 import nexus.engine.core.sound.SoundManager;
 
 public class DummyLevel extends Level {

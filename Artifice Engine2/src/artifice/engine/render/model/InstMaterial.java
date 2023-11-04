@@ -2,7 +2,7 @@ package artifice.engine.render.model;
 
 import org.joml.Vector2i;
 
-import artifice.engine.render.texture.TextureAtlas;
+import nexus.engine.core.render.opengl.TextureAtlas;
 
 public class InstMaterial {
 	static int nID = 0;
